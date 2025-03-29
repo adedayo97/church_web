@@ -1,0 +1,17 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+        
+{% block additional_css %}
+{% endblock %}
+		
+{% block content %}		
+	<section class="content-inner line-img">
+		<div class="container">
+			<div class="error-page text-center">
+				<div class="dlab_error">404</div>
+				<h2 class="error-head">We are sorry. But the page you are looking for cannot be found.</h2>
+				<a href="{% url 'codesign:index' %}" class="btn btn-primary radius-no"><span class="p-lr15">BACK TO HOMEPAGE</span></a>
+			</div>
+		</div>
+	</section>
+{% endblock %}

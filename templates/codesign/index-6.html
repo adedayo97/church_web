@@ -1,0 +1,417 @@
+{% extends 'codesign/elements/layouts/layout-6.html' %}
+{% load static %}
+        
+{% block additional_css %}
+{% endblock %}
+		
+{% block content %}	
+		
+<!-- Slider -->
+<div class="banner-six position-relative">
+	<div class="container">
+		<div class="row  inner-content">
+			<div class="col-12">
+				<h1 class="title">We Create Your Dream<br> Ideas 
+					<span class="text-primary">Creative Architecture</span>
+				</h1>
+			</div>
+			<div class="col-lg-5 col-md-12">
+				<div class="banner-content">
+					<div class="inner-content">
+						<p class="text m-b30">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+						<div class="contant-box">
+							<a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary m-r30 btn-sm">READ MORE</a>
+							<a class="video-btn style-1 popup-youtube" href="https://www.youtube.com/watch?v=cfmQFW1DpA0">
+								<i class="fa fa-play"></i>
+								<span class="text">Watch Video</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-7 col-md-12 ">
+				<div class="banner-media">
+					<div class="dz-media overlay-black-light m-b30">
+						<img src="{% static 'codesign/images/main-slider/pic7.jpg' %}"  alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- About Us -->
+<section class="style-2 position-relative " data-name="About Us">
+	<div class="container">
+		<div class="row about-bx5 align-items-end">
+			<div class="col-lg-5 col-md-12 col-sm-12">
+				<div class="dz-media ">
+					<div class="img1  aos-item m-b30">
+						<img src="{% static 'codesign/images/about/pic8.jpg' %}" alt="" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+					</div>
+				</div>	
+			</div>
+			<div class="col-lg-6  aos-item p-a0" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+				<div class="about-content">	
+					<div class="section-head style-1">
+						<h2 class="title">WE PROVIDE YOU THE BEST EXPERIENCE</h2>
+					</div>
+					<div class="row m-b30 justify-content-center">
+						<div class="col-lg-4 col-md-4 col-6">
+							<h2 class="year"><span class="counter">88</span>K</h2>
+							<span class="text">Complete Projects</span>
+						</div>
+						<div class="col-lg-4 col-md-4 col-6">
+							<h2 class="awards"><span class="counter">38</span>K</h2>
+							<span class="text">New Projects</span>
+						</div>
+						<div class="col-lg-4 col-md-4 col-6">
+							<h2 class="sales"><span class="counter">880</span>K</h2>
+							<span class="text">Last Year Profite</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> 
+
+<!-- Portfolio -->
+<section class="content-inner-3 overflow-hidden masonry-portfolio">
+	<div class="container">
+		<div class="row section-head-bx align-items-center">
+			<div class="col-lg-7 col-md-6 col-sm-12">
+				<div class="section-head style-2">
+					<h2 class="title">Our Latest <span class="text-primary">Work</span></h2>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-6 col-sm-12 text-end ">
+				<a href="{% url 'codesign:contact-us' %}" class="btn shadow-primary btn-primary center m-tb10 text-uppercase">View All Post</a>
+			</div>
+		</div>
+		<div class="site-filters style-3 clearfix">
+			<ul class="filter-isotope">
+				<li class="btn active">
+					<a href="javascript:void(0);">All</a> 
+				</li>
+				<li data-filter=".architecture" class="btn">
+					<a  href="javascript:void(0);">Architecture</a> 
+				</li>
+				<li data-filter=".interior_design" class="btn">
+					<a  href="javascript:void(0);">Interior Design</a> 
+				</li>
+				<li data-filter=".construction" class="btn">
+					<a  href="javascript:void(0);">Construction</a> 
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix container-fluid">
+		<ul id="Isotope" class="row spno lightgallery aos-item">
+			<li class="card-container col-xl-6 col-lg-6 col-md-6 col-sm-6 construction">
+				<div class="dz-box overlay style-4">
+					<div class="dz-media" style="background-image: url('{% static 'codesign/images/filter/pic4.jpg' %}')">
+						<span data-exthumbimage="{% static 'codesign/images/filter/pic4.jpg' %}" data-src="{% static 'codesign/images/filter/pic4.jpg' %}" class="view-btn lightimg" title="Architecture"></span>
+					</div>
+					<div class="dz-info">
+						<h6 class="title"><a href="{% url 'codesign:services-details' %}">Construction</a></h6>
+					</div>
+				</div>
+			</li>
+			<li class="card-container col-xl-6 col-lg-6 col-md-6 col-sm-6 construction">
+				<div class="dz-box overlay style-4">
+					<div class="dz-media" style="background-image: url('{% static 'codesign/images/filter/pic3.jpg' %}')">
+						<span data-exthumbimage="{% static 'codesign/images/filter/pic3.jpg' %}" data-src="{% static 'codesign/images/filter/pic3.jpg' %}" class="view-btn lightimg" title="Construction"></span>
+					</div>
+					<div class="dz-info">
+						<h6 class="title"><a href="{% url 'codesign:services-details' %}">Floor Plan Design</a></h6>
+					</div>
+				</div>
+			</li>
+			<li class="card-container col-xl-4 col-lg-4 col-md-4 col-sm-6  architecture">
+				<div class="dz-box overlay style-4">
+					<div class="dz-media" style="background-image: url('{% static 'codesign/images/filter/pic1.jpg' %}')">
+						<span data-exthumbimage="{% static 'codesign/images/filter/pic1.jpg' %}" data-src="{% static 'codesign/images/filter/pic1.jpg' %}" class="view-btn lightimg" title="Architecture"></span>
+					</div>
+					<div class="dz-info">
+						<h6 class="title"><a href="{% url 'codesign:services-details' %}">Public Cafe Design</a></h6>
+					</div>
+				</div>
+			</li>
+			<li class="card-container col-xl-4  col-lg-4 col-md-4 col-sm-6 interior_design">
+				<div class="dz-box overlay style-4">
+					<div class="dz-media" style="background-image: url('{% static 'codesign/images/filter/pic2.jpg' %}')">
+						<span data-exthumbimage="{% static 'codesign/images/filter/pic2.jpg' %}" data-src="{% static 'codesign/images/filter/pic2.jpg' %}" class="view-btn lightimg" title="Interior Design"></span>
+					</div>
+					<div class="dz-info">
+						<h6 class="title"><a href="{% url 'codesign:services-details' %}">Interior Design</a></h6>	
+					</div>
+				</div>
+			</li>
+			<li class="card-container col-xl-4 col-lg-4 col-md-4 col-sm-6  construction">
+				<div class="dz-box overlay style-4">
+					<div class="dz-media" style="background-image: url('{% static 'codesign/images/filter/pic3.jpg' %}')">
+						<span data-exthumbimage="{% static 'codesign/images/filter/pic3.jpg' %}" data-src="{% static 'codesign/images/filter/pic3.jpg' %}" class="view-btn lightimg" title="Construction"></span>
+					</div>
+					<div class="dz-info">
+						<h6 class="title"><a href="{% url 'codesign:services-details' %}">Floor Plan Design</a></h6>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<!-- Services -->
+<section class="content-inner overflow-hidden bg-white">
+	<div class="container">
+		<div class="section-head style-2 text-center">
+			<h2 class="title">What We <span class="text-primary">Provide</span></h2>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-lg-4 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+				<div class="icon-bx-wraper style-11 m-b30 p-a30 box-hover" data-name="1.">
+					<div class="icon-bx-sm m-b20"> 
+						<a href="javascript:void(0);" class="icon-cell">
+							<div class="icon-lg">
+								<span class="icon-cell text-primary"><i class="flaticon-blueprint-1"></i></span> 
+							</div>
+						</a> 
+					</div>
+					<h4 class="title m-b10"><a href="{% url 'codesign:services-details' %}">Interior Design</a></h4>
+					<p>Lorem Ipsum is simply Lorem Ipsum is simply  dum my text of the Lorem Ipsum is simply dummy text  dum.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+				<div class="icon-bx-wraper style-11 m-b30 p-a30 box-hover" data-name="1.">
+					<div class="icon-bx-sm m-b20"> 
+						<a href="javascript:void(0);" class="icon-cell">
+							<div class="icon-lg">
+								<span class="icon-cell text-primary"><i class="flaticon-blueprint"></i></span> 
+							</div>
+						</a> 
+					</div>
+					<h4 class="title m-b10"><a href="{% url 'codesign:services-details' %}">Construction</a></h4>
+					<p>Lorem Ipsum is simply Lorem Ipsum is simply  dum my text of the Lorem Ipsum is simply dummy text  dum.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+				<div class="icon-bx-wraper style-11 m-b30 p-a30 box-hover" data-name="1.">
+					<div class="icon-bx-sm m-b20"> 
+						<a href="javascript:void(0);" class="icon-cell">
+							<div class="icon-lg">
+								<span class="icon-cell text-primary"><i class="flaticon-home"></i></span> 
+							</div>
+						</a> 
+					</div>
+					<h4 class="title m-b10"><a href="{% url 'codesign:services-details' %}">Architecture</a></h4>
+					<p>Lorem Ipsum is simply Lorem Ipsum is simply  dum my text of the Lorem Ipsum is simply dummy text  dum.</p>
+				</div>
+			</div>
+			<div class="col-12 text-center">
+				<a href="{% url 'codesign:contact-us' %}" class="btn shadow-primary btn-primary center text-uppercase m-t20">View All Project</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="clearfix">
+	<div class="container-fluid">
+		<div class="content-inner bg-gray overflow-hidden">	
+			<div class="section-head style-2 text-center">
+				<h2 class="title">Creative <span class="text-primary"> Experise</span></h2>
+				<p class="sub-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="200">
+						<div class="dz-team style-3 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+							<div class="dz-media">
+								<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic9.jpg' %}" alt=""></a>
+							</div>
+							<div class="dz-content">
+								<h5 class="dz-name"><a href="javascript:void(0);">Jakob Bothman</a></h5>
+								<h6 class="dz-position ">Software Developer</h6>
+							</div>
+							<ul class="team-social">
+								<li><a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="blank"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://twitter.com/" target="blank"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.youtube.com//" target="blank"><i class="fab fa-youtube"></i></a></li>
+							</ul>
+						</div>	
+					</div>
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down"  data-aos-duration="1600" data-aos-delay="200">
+						<div class="dz-team style-3 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+							<div class="dz-media ">
+								<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic10.jpg' %}" alt=""></a>
+							</div>
+							<div class="dz-content">
+								<h5 class="dz-name"><a href="javascript:void(0);">Lindsey Botosh</a></h5>
+								<h6 class="dz-position ">Designer</h6>
+							</div>
+							<ul class="team-social">
+								<li><a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="blank"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://twitter.com/" target="blank"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.youtube.com//" target="blank"><i class="fab fa-youtube"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down"  data-aos-duration="1500" data-aos-delay="200">
+						<div class="dz-team style-3 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+							<div class="dz-media ">
+								<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic11.jpg' %}" alt=""></a>
+							</div>
+							<div class="dz-content">
+								<h5 class="dz-name"><a href="javascript:void(0);">Andrey Carol</a></h5>
+								<h6 class="dz-position ">programmer</h6>
+							</div>
+							<ul class="team-social">
+								<li><a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="blank"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://twitter.com/" target="blank"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.youtube.com//" target="blank"><i class="fab fa-youtube"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down"  data-aos-duration="1500" data-aos-delay="200">
+						<div class="dz-team style-3 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+							<div class="dz-media ">
+								<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic12.jpg' %}" alt=""></a>
+							</div>
+							<div class="dz-content">
+								<h5 class="dz-name"><a href="javascript:void(0);">Kaylynn Donin</a></h5>
+								<h6 class="dz-position ">developer</h6>
+							</div>
+							<ul class="team-social">
+								<li><a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="blank"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="https://twitter.com/" target="blank"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.youtube.com//" target="blank"><i class="fab fa-youtube"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> 
+
+
+<!-- Blog -->
+<section class="content-inner-1  bg-white overflow-hidden ">
+	<div class="container">
+		<div class="row section-head-bx align-items-end p-b10">
+			<div class="col-lg-7 col-md-6 col-sm-12">
+				<div class="section-head style-2">
+					<h2 class="title">Stay Updated  <span class="text-primary">With us</span></h2>
+					<p class="sub-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-6 col-sm-12 text-end">
+				<a href="{% url 'codesign:contact-us' %}" class="btn shadow-primary btn-primary center m-tb10 text-uppercase">View All Post</a>
+			</div>
+		</div>
+		<div class="blog-area">
+			<div class="swiper-container blog-swiper-3">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="dz-card blog-grid style-4 aos-item overlay-shine" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+							<h5 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Ingenious Ways You Can Do  With Construction.</a></h5>	
+							<div class="dz-media">
+								<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/blog-grid/pic7.jpg' %}" alt=""></a>
+								<div class="dz-meta">
+									<ul>
+										<li class="post-btn"><a href="{% url 'codesign:blog-details' %}" class="btn  btn-primary">Bussiness</a></li>
+										<li class="post-date"><span><i class="far fa-clock text-primary"></i></span>Jan 20, 2022</li>
+										<li class="post-user"><a href="javascript:void(0);"><span><i class="far fa-comment text-primary"></i></span>1947</a></li>
+									</ul>
+								</div>	
+							</div>
+							<div class="dz-info">
+								<div class="text">
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="las la-long-arrow-alt-right"></i></a>
+							</div>																			
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="dz-card blog-grid style-4 aos-item overlay-shine" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+							<h5 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Maxime rhoncus aliquet sint eu accusantium illum.</a></h5>	
+							<div class="dz-media">
+								<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/blog-grid/pic8.jpg' %}" alt=""></a>
+								<div class="dz-meta">
+									<ul>
+										<li class="post-btn"><a href="{% url 'codesign:blog-details' %}" class="btn  btn-primary">Bussiness</a></li>
+										<li class="post-date"><span><i class="far fa-clock text-primary"></i></span>feb 18, 2022</li>
+										<li class="post-user"><a href="javascript:void(0);"><span><i class="far fa-comment text-primary"></i></span>1999</a></li>
+									</ul>
+								</div>	
+							</div>
+							<div class="dz-info">
+								<div class="text">
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="las la-long-arrow-alt-right"></i></a>
+							</div>																			
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="dz-card blog-grid style-4 aos-item overlay-shine" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+							<h5 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Maxime rhoncus aliquet sint eu accusantium illum.</a></h5>	
+							<div class="dz-media">
+								<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/blog-grid/pic9.jpg' %}" alt=""></a>
+								<div class="dz-meta">
+									<ul>
+										<li class="post-btn"><a href="{% url 'codesign:blog-details' %}" class="btn  btn-primary">Bussiness</a></li>
+										<li class="post-date"><span><i class="far fa-clock text-primary"></i></span>mar 13, 2005</li>
+										<li class="post-user"><a href="javascript:void(0);"><span><i class="far fa-comment text-primary"></i></span>1947</a></li>
+									</ul>
+								</div>	
+							</div>
+							<div class="dz-info">
+								<div class="text">
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="las la-long-arrow-alt-right"></i></a>
+							</div>																			
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- subscrible bx -->
+<section class="clearfix">
+	<div class="container-fluid">
+		<div class="subscrible-bx style-1 content-inner" style="background-image:url({% static 'codesign/images/background/bg6.jpg' %});">
+			<div class="container">
+				<div class="row ft-subscribe-wrapper justify-content-center text-center">
+					<div class="col-xl-8 overflow-hidden">
+						<div class="section-head text-center style-1">
+							<h2 class="title">SUBSCRIBE TO GET LATEST NEWS ABOUT US</h2>
+						</div> 
+						<div class="ft-subscribe m-b30">
+							<form class="dzSubscribe" action="script/mailchamp.php" method="post">
+								<div class="dzSubscribeMsg"></div>
+								<div class="input-group">
+									<input name="dzEmail" required type="email" class="form-control aos-item" data-aos="fade-in" data-aos-duration="250" data-aos-delay="100" placeholder="Enter Your Email Address">
+								
+									<button name="submit" value="Submit" type="submit" class="btn btn-primary style-1">View All Post</button>
+									<button name="submit" value="Submit" type="submit" class="btn btn-primary style-2"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" fill="none" xmlns:v="https://vecta.io/nano"><g clip-path="url(#A)"><path d="M.746 17.179c-.148.68.374.967.858.75l16.365-8.391h.002c.195-.11.308-.308.308-.537s-.113-.428-.308-.538h-.002L1.604.071C1.12-.146.598.142.746.822L2.25 7.521 10.792 9 2.25 10.479.746 17.179z" fill="#fff"/></g><defs><clipPath id="A"><path fill="#fff" transform="translate(.5)" d="M0 0h18v18H0z"/></clipPath></defs></svg></button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

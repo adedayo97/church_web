@@ -1,0 +1,50 @@
+{% load static %}
+
+<footer class="site-footer style-1" id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-7 col-lg-10">
+                    <div class="footer-logo logo-dark">
+                        <img src="{% static 'codesign/images/mfmlogo.png' %}" alt="">
+                    </div>
+                    <p class="text">Welcome to Mountain of Fire and Miracles Ministries South Chicago. We are a praying church dedicated to transforming lives through the power of God’s Word, prayer, and deliverance. Join us as we seek His presence and purpose.</p>
+                    <div class="ft-subscribe">
+                        <div class="ft-subscribe">
+                            <form class="dzSubscribe" action="" method="post">
+                                <div class="dzSubscribeMsg"></div>
+                                <div class="input-group">
+                                    <input name="dzEmail" required type="email" class="form-control aos-item" data-aos="fade-in" data-aos-duration="250" data-aos-delay="100" placeholder="ENTER YOUR EMAIL">
+                                    <a href="{% url 'codesign:contact-us' %}" class="btn btn-primary aos-item" data-aos="fade-right" data-aos-duration="750" data-aos-delay="100">SUBSCRIBE NOW <i class="m-l10 fas fa-caret-right"></i></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <ul class="footer-link">
+                        <li><a href="javascript:void(0);">PRIVACY POLICY</a></li>
+                        <li><a href="javascript:void(0);">TERMS OF SERVICE</a></li>
+                    </ul>
+                    <h4 class="mail-text"><span class="text-primary">EMAIL:</span>INFO@MFMSOUTHCHICAGO.US </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-7 text-start"> 
+                    <span class="copyright-text">Copyright © 2025 <a href="https://mfmsouthchicago.org/" class="text-primary" target="_blank">MFM South Chicago</a> All rights reserved.</span>
+                </div>
+                <div class="col-lg-6 col-md-5 text-end"> 
+                    <ul class="social-list style-1">
+                        <li><a href="https://www.facebook.com/mfmsouthchicago.usa" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.instagram.com/mfmsouthchicago.usa" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/mfmsouthchicago" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.youtube.com/@mfmsouthchicago_usa" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

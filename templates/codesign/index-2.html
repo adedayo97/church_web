@@ -1,0 +1,651 @@
+{% extends 'codesign/elements/layouts/layout-2.html' %}
+{% load static %}
+        
+{% block additional_css %}
+{% endblock %}
+		
+{% block content %}	
+		<!-- Slider -->
+		<div class="silder-two">
+			<div class="swiper-container main-silder-swiper-2">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="dz-slide-item">
+							<div class="silder-content line-img" >
+								<div class="inner-content">
+									<h6 class="sub-title text-primary">INTERIOR DESIGN</h6>
+									<h1 class="title">Creative Concepts
+										<span class="text-primary">Interior Design</span>
+									</h1>
+									<p class="m-b30">Morbi pharetra fermentum facilisis. Aenean eleifend quam ante, at luctus turpis rhoncus quis. Quisque in est luctus, blandit lorem quis, placerat augue.</p>
+									<a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary m-r30 m-b10">READ MORE <i class="m-l5 las la-plus"></i></a>
+									<a href="{% url 'codesign:contact-us' %}" class="btn btn-outline-primary shadow-none m-b10">CONTACT US <i class="m-l5 las la-plus"></i></a>
+								</div>
+							</div>
+							<div class="silder-img overlay-black-light">
+								<img src="{% static 'codesign/images/main-slider/pic3.jpg' %}"  alt="">
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="dz-slide-item">
+							<div class="silder-content line-img">
+								<div class="inner-content">
+									<h6 class="sub-title text-primary">INTERIOR DESIGN</h6>
+									<h1 class="title">WE CREAT YOUR <span class="text-primary">DREAM IDEAS</span></h1>
+									<p class="m-b30">Quisque vel condimentum dolor, vitae luctus lacus. Integer finibus arcu non ultrices rhoncus. Sed pulvinar augue diam, sed commodo urna vehicula quis. Ut accumsan mauris vel neque tristique, ut egestas orci aliquet. Aliquam non turpis id nulla semper porta.</p>
+									<a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary m-r30 m-b10">READ MORE <i class="m-l5 las la-plus"></i></a>
+									<a href="{% url 'codesign:contact-us' %}" class="btn btn-outline-primary shadow-none m-b10">CONTACT US <i class="m-l5 las la-plus"></i></a>
+								</div>
+							</div>
+							<div class="silder-img overlay-black-light">
+								<img src="{% static 'codesign/images/main-slider/pic2.jpg' %}"  alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="follow-info style-2 left">
+				<div class="inner-info">
+					<ul>
+						<li> +91 879 5427 987</li>
+						<li>info@gmail.com</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- About Us -->
+		<section class="content-inner-2">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="section-head style-1">
+							<h2 class="title">WE SERVE THE BEST FOR YOU</h2>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<p>Pellentesque luctus egestas augue quis elementum. Proin ultricies sem erat, eu sollicitudin lorem feugiat in. Maecenas congue sit amet odio aliquet malesuada.</p>
+						<a class="btn-link style-2" href="{% url 'codesign:contact-us' %}">CONTACT US <i class="m-l5 las la-plus"></i></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- About Us -->
+		<section class="content-inner-3">
+			<div class="container">
+				<div class="row align-items-center about-bx2">
+					<div class="col-lg-6 m-b30">
+						<div class="dz-media">
+							<img src="{% static 'codesign/images/about/pic3.jpg' %}" alt="" class="img1 aos-item" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+							<img src="{% static 'codesign/images/pattern/pt13.png' %}" class="circle-bg" alt="">
+						</div>
+					</div>
+					<div class="col-lg-6 m-b30 aos-item" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+						<div class="section-head style-1">
+							<h2 class="title">WE PROVIDE YOU THE BEST EXPERIENCE</h2>
+						</div>
+						<p>Integer pretium, nisi at aliquam faucibus, ligula leo sollicitudin ligula, a scelerisque magna nunc sit amet leo. Cras lobortis elementum orci, in lobortis velit gravida vel. In hac habitasse platea dictumst.</p>
+						<div class="history-row m-b30">
+							<div>
+								<h2 class="year"><span class="counter">10</span>+</h2>
+								<span class="text">Years Of <br> Experience</span>
+							</div>
+							<div>
+								<h2 class="awards"><span class="counter">25</span>+</h2>
+								<span class="text">Awards <br> Gained</span>
+							</div>
+							<div>
+								<h2 class="sales"><span class="counter">50</span>+</h2>
+								<span class="text">Furniture <br> Sold</span>
+							</div>
+						</div>
+						<a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary">READ MORE <i class="m-l10 las la-plus"></i></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Our Portfolio -->
+		<section class="content-inner-2">
+			<div class="container">
+				<div class="section-head style-1 text-center">
+					<h2 class="title">OUR LATEST WORK</h2>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<ul  class="row lightgallery aos-item" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+					<li class="card-container col-xl-6 col-md-6 col-sm-6 m-b30">
+						<div class="dz-box overlay style-2">
+							<div class="dz-media" style="background-image: url('{% static 'codesign/images/work/work-2/pic1.jpg' %}')">
+								<span data-exthumbimage="{% static 'codesign/images/work/work-2/pic1.jpg' %}" data-src="{% static 'codesign/images/work/work-2/pic1.jpg' %}" class="view-btn lightimg" title="ARCHITECTURAL"></span>
+							</div>
+							<div class="dz-info">
+								<span class="line"></span>
+								<div>
+									<h4 class="title"><a href="{% url 'codesign:portfolio-details' %}">Mordern Living Room</a></h4>
+									<h6 class="sub-title text-primary">Landscape, Urban</h6>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="card-container col-xl-6 col-md-6 col-sm-6 m-b30">
+						<div class="dz-box overlay style-2">
+							<div class="dz-media" style="background-image: url('{% static 'codesign/images/work/work-2/pic2.jpg' %}')">
+								<span data-exthumbimage="{% static 'codesign/images/work/work-2/pic2.jpg' %}" data-src="{% static 'codesign/images/work/work-2/pic2.jpg' %}" class="view-btn lightimg" title="ARCHITECTURAL"></span>
+							</div>
+							<div class="dz-info">
+								<span class="line"></span>
+								<div>
+									<h4 class="title"><a href="{% url 'codesign:portfolio-details' %}">Mordern Living Room</a></h4>
+									<h6 class="sub-title text-primary">Landscape, Urban</h6>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="card-container col-xl-4 col-md-6 col-sm-6 m-b30">
+						<div class="dz-box overlay style-2">
+							<div class="dz-media" style="background-image: url('{% static 'codesign/images/work/work-2/pic3.jpg' %}')">
+								<span data-exthumbimage="{% static 'codesign/images/work/work-2/pic3.jpg' %}" data-src="{% static 'codesign/images/work/work-2/pic3.jpg' %}" class="view-btn lightimg" title="BUILDINGS"></span>
+							</div>
+							<div class="dz-info">
+								<span class="line"></span>
+								<div>
+									<h4 class="title"><a href="{% url 'codesign:portfolio-details' %}">Mordern Living Room</a></h4>
+									<h6 class="sub-title text-primary">Landscape, Urban</h6>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="card-container col-xl-4 col-md-6 col-sm-6 m-b30">
+						<div class="dz-box overlay style-2">
+							<div class="dz-media" style="background-image: url('{% static 'codesign/images/work/work-2/pic4.jpg' %}')">
+								<span data-exthumbimage="{% static 'codesign/images/work/work-2/pic4.jpg' %}" data-src="{% static 'codesign/images/work/work-2/pic4.jpg' %}" class="view-btn lightimg" title="BUILDINGS"></span>
+							</div>
+							<div class="dz-info">
+								<span class="line"></span>
+								<div>
+									<h4 class="title"><a href="{% url 'codesign:portfolio-details' %}">Mordern Living Room</a></h4>
+									<h6 class="sub-title text-primary">Landscape, Urban</h6>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="card-container col-xl-4 col-md-6 col-sm-6 m-b30">
+						<div class="dz-box overlay style-2">
+							<div class="dz-media" style="background-image: url('{% static 'codesign/images/work/work-2/pic5.jpg' %}')">
+								<span data-exthumbimage="{% static 'codesign/images/work/work-2/pic5.jpg' %}" data-src="{% static 'codesign/images/work/work-2/pic5.jpg' %}" class="view-btn lightimg" title="INTERIOR"></span>
+							</div>
+							<div class="dz-info">
+								<span class="line"></span>
+								<div>
+									<h4 class="title"><a href="{% url 'codesign:portfolio-details' %}">Mordern Living Room</a></h4>
+									<h6 class="sub-title text-primary">Landscape, Urban</h6>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		
+		<!-- Services -->
+		<section class="content-inner overflow-hidden">
+			<div class="container">
+				<div class="section-head style-1 text-center">
+					<h2 class="title">WHAT WE PROVIDE</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+						<div class="icon-bx-wraper bx-style-1 style-9 m-b30 p-a30" data-name="1.">
+							<div class="icon-bx-sm radius m-b20"> 
+								<a href="javascript:void(0);" class="icon-cell"><i class="flaticon-blueprint"></i></a> 
+							</div>
+							<h4 class="title m-b15"><a href="{% url 'codesign:services-details' %}">Architecture & Interior</a></h4>
+							<p>Duis laoreet dui at eros scelerisque, in lacinia neque</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+						<div class="icon-bx-wraper bx-style-1 style-9 m-b30 p-a30" data-name="2.">
+							<div class="icon-bx-sm radius m-b20"> 
+								<a href="javascript:void(0);" class="icon-cell"><i class="flaticon-briefing"></i></a> 
+							</div>
+							<h4 class="title m-b15"><a href="{% url 'codesign:services-details' %}">Project Planning</a></h4>
+							<p>Duis laoreet dui at eros scelerisque, in lacinia neque</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+						<div class="icon-bx-wraper bx-style-1 style-9 m-b30 p-a30" data-name="3.">
+							<div class="icon-bx-sm radius m-b20"> 
+								<a href="javascript:void(0);" class="icon-cell"><i class="flaticon-home"></i></a> 
+							</div>
+							<h4 class="title m-b15"><a href="{% url 'codesign:services-details' %}">Product Design</a></h4>
+							<p>Duis laoreet dui at eros scelerisque, in lacinia neque</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+						<div class="icon-bx-wraper bx-style-1 style-9 m-b30 p-a30" data-name="4.">
+							<div class="icon-bx-sm radius m-b20"> 
+								<a href="javascript:void(0);" class="icon-cell"><i class="flaticon-concept"></i></a> 
+							</div>
+							<h4 class="title m-b15"><a href="{% url 'codesign:services-details' %}">Custom Solutions</a></h4>
+							<p>Duis laoreet dui at eros scelerisque, in lacinia neque</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+		<!-- Testimonials -->
+		<section class="content-inner bg-gray" >
+			<div class="container">
+				<div class="row section-head-bx align-items-center">
+					<div class="col-md-8">
+						<div class="section-head style-1">
+							<h2 class="title">WHAT OUR CLIENT SAYS</h2>
+						</div>
+					</div>
+					<div class="col-md-4 text-end">
+						<div class="testimonial-swiper-2 m-b30">
+							<!-- Add Navigation -->
+							<div class="btn-prev swiper-button-prev3 pe-3"><i class="las la-long-arrow-alt-left"></i></div>
+							<div class="btn-next swiper-button-next3 ps-3"><i class="las la-long-arrow-alt-right"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 m-b20">
+						<div class="swiper-container testimonial-swiper-2">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="testimonial-2 aos-item">
+										<div class="testimonial-info m-b20">
+											<div class="testimonial-text">
+												<ul class="star-rating text-primary m-b15">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+												</ul>
+												<p>“ Proin quis gravida diam. Donec pretium eu libero eget pharetra congue. Suspendisse in ipsum felis. Proin sit amet elit lorem venenatis . Vivamus porttitor elit nisi, ut placerat libero efficitur vitae ”. </p>
+											</div>
+										</div>
+										<div class="testimonial-detail">
+											<div class="testimonial-pic m-r20">
+												<img src="{% static 'codesign/images/testimonials/pic1.jpg' %}" alt="">
+											</div>
+											<div>
+												<h5 class="testimonial-name">Andrey Carol</h5> 
+												<span class="testimonial-position text-primary">Designer</span> 
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="testimonial-2 aos-item">
+										<div class="testimonial-info m-b20">
+											<div class="testimonial-text">
+												<ul class="star-rating text-primary m-b15">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+												</ul>
+												<p>“ Proin quis gravida diam. Donec pretium eu libero eget pharetra congue. Suspendisse in ipsum felis. Proin sit amet elit lorem venenatis . Vivamus porttitor elit nisi, ut placerat libero efficitur vitae ”. </p>
+											</div>
+										</div>
+										<div class="testimonial-detail">
+											<div class="testimonial-pic m-r20">
+												<img src="{% static 'codesign/images/testimonials/pic2.jpg' %}" alt="">
+											</div>
+											<div>
+												<h5 class="testimonial-name">Andrey Carol</h5> 
+												<span class="testimonial-position text-primary">Designer</span> 
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="testimonial-2 aos-item">
+										<div class="testimonial-info m-b20">
+											<div class="testimonial-text">
+												<ul class="star-rating text-primary m-b15">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+												</ul>
+												<p>“ Proin quis gravida diam. Donec pretium eu libero eget pharetra congue. Suspendisse in ipsum felis. Proin sit amet elit lorem venenatis . Vivamus porttitor elit nisi, ut placerat libero efficitur vitae ”. </p>
+											</div>
+										</div>
+										<div class="testimonial-detail">
+											<div class="testimonial-pic m-r20">
+												<img src="{% static 'codesign/images/testimonials/pic1.jpg' %}" alt="">
+											</div>
+											<div>
+												<h5 class="testimonial-name">Andrey Carol</h5> 
+												<span class="testimonial-position text-primary">Designer</span> 
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		<!-- Team -->
+		<section class="content-inner">
+			<div class="container">
+				<div class="section-head style-1 text-center">
+					<h2 class="title">CREATIVE EXPERTISE</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 m-b30">
+						<div class="swiper-container team-swiper-2">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="dz-team style-2 text-center m-b30 overlay-shine aos-item">
+										<div class="dz-media">
+											<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic1.jpg' %}" alt=""></a>
+											<ul class="team-social">
+												<li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+											</ul>
+										</div>
+										<div class="dz-content m-t20">
+											<h6 class="dz-position line text-primary">Director</h6>
+											<h5 class="dz-name"><a href="javascript:void(0);">Andrey Carol</a></h5>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="dz-team style-2 text-center m-b30 overlay-shine aos-item">
+										<div class="dz-media">
+											<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic2.jpg' %}" alt=""></a>
+											<ul class="team-social">
+												<li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+											</ul>
+										</div>
+										<div class="dz-content m-t20">
+											<h6 class="dz-position line text-primary">Director</h6>
+											<h5 class="dz-name"><a href="javascript:void(0);">Andrey Carol</a></h5>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="dz-team style-2 text-center m-b30 overlay-shine aos-item">
+										<div class="dz-media">
+											<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic3.jpg' %}" alt=""></a>
+											<ul class="team-social">
+												<li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+											</ul>
+										</div>
+										<div class="dz-content m-t20">
+											<h6 class="dz-position line text-primary">Director</h6>
+											<h5 class="dz-name"><a href="javascript:void(0);">Andrey Carol</a></h5>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="dz-team style-2 text-center m-b30 overlay-shine aos-item">
+										<div class="dz-media">
+											<a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic4.jpg' %}" alt=""></a>
+											<ul class="team-social">
+												<li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+												<li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+											</ul>
+										</div>
+										<div class="dz-content m-t20">
+											<h6 class="dz-position line text-primary">Director</h6>
+											<h5 class="dz-name"><a href="javascript:void(0);">Andrey Carol</a></h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		<section class="content-inner overlay-white-dark" style="background-image:url({% static 'codesign/images/background/bg5.jpg' %}); background-position:left top; background-size:cover; background-repeat:no-repeat;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="video-bx content-media style-3 m-b20">
+							<div class="video-btn aos-item" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+								<a href="https://www.youtube.com/watch?v=4UdeL0kdMMs" class="popup-youtube"><i class="fas fa-play"></i></a>
+							</div>
+						</div>
+						<div class="section-head style-1 text-center">
+							<h2 class="title">WE HAVE GREAT IDEAS <br>WITH DREMS</h2>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="client-logo-wrapper">
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray1.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange1.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray2.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange2.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray3.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange3.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray4.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange4.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="500">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray5.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange5.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray1.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange1.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="200">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray2.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange2.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray3.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange3.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray4.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange4.png' %}" alt="">
+							</div>
+							<div class="clients-logo aos-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="500">
+								<img class="logo-main" src="{% static 'codesign/images/logo/logo-gray5.png' %}" alt="">
+								<img class="logo-hover" src="{% static 'codesign/images/logo/logo-orange5.png' %}" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		<!-- About Us -->
+		<section class="content-inner overflow-hidden">
+			<div class="container">
+				<div class="row align-items-center about-bx2">
+					<div class="col-lg-6 m-b30 aos-item" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+						<div class="section-head style-1">
+							<h2 class="title">ARCHITACTS WITH DIFFERENT APPROACH</h2>
+						</div>
+						<div class="progress-bx style-3 m-b40">
+							<div class="progress-info">
+								<h4 class="title">Design</h4>
+							</div>
+							<div class="progress">
+								<div class="progress-bar" style="width: 80%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+									<h5 class="progress-value">80</h5>
+								</div>
+							</div>
+						</div>
+						<div class="progress-bx style-3 m-b40">
+							<div class="progress-info">
+								<h4 class="title">Architact</h4>
+							</div>
+							<div class="progress">
+								<div class="progress-bar" style="width: 90%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+									<h5 class="progress-value">90</h5>
+								</div>
+							</div>
+						</div>
+						<div class="progress-bx style-3 m-b40">
+							<div class="progress-info">
+								<h4 class="title">Planing</h4>
+							</div>
+							<div class="progress">
+								<div class="progress-bar" style="width: 70%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+									<h5 class="progress-value">70</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 m-b30">
+						<div class="dz-media right">
+							<img src="{% static 'codesign/images/about/pic4.jpg' %}" alt="" class="img1 aos-item" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+							<img src="{% static 'codesign/images/pattern/pt13.png' %}" class="circle-bg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		<!-- Blog -->
+		<section class="content-inner-3">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="section-head style-1">
+							<h2 class="title">STAY UPDATED WITH US</h2>
+						</div> 
+					</div>
+					<div class="col-md-4 text-md-end text-start m-b30">
+						<a class="btn-link style-2" href="javascript:void(0);">VIEW MORE <i class="m-l5 las la-plus"></i></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="dz-card blog-grid style-2 m-b50">
+							<div class="dz-media m-b20">
+								<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/blog-grid/pic4.jpg' %}" alt=""></a>
+								<div class="dz-meta">
+									<ul>
+										<li class="post-date">7 March 2020</li>
+										<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="dz-info p-0">
+								<h5 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Pellentesque pulvinar ultricies vestibulum estibulum faucibus, arcu id aliquet aliquam.</a></h5>
+								<div class="dz-post-text text">
+									<p>Nam ut elit mauris. In sed tempus neque, eu aliquam sem. Duis libero ligula, dapibus id dui eget, porttitor scelerisque velit. Suspendisse aliquam elementum massa sed.</p>
+								</div>
+								<a class="btn-link style-2" href="javascript:void(0);">READ MORE <i class="m-l5 las la-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="widget recent-posts-entry style-2">
+							<div class="widget-post-bx">
+								<div class="widget-post clearfix">
+									<div class="dz-media"> 
+										<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic5.jpg' %}" alt=""></a>
+									</div>
+									<div class="dz-info">
+										<h5 class="title"><a href="{% url 'codesign:blog-details' %}">Aliquam luctus mattis el sollicitudin lacus dapibus non.</a></h5>
+										<div class="dz-meta">
+											<ul>
+												<li class="post-date">7 March 2020</li>
+												<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="widget-post clearfix">
+									<div class="dz-media"> 
+										<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic6.jpg' %}" alt=""></a>
+									</div>
+									<div class="dz-info">
+										<h5 class="title"><a href="{% url 'codesign:blog-details' %}">Aliquam luctus mattis el sollicitudin lacus dapibus non.</a></h5>
+										<div class="dz-meta">
+											<ul>
+												<li class="post-date">7 March 2020</li>
+												<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="widget-post clearfix">
+									<div class="dz-media"> 
+										<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic7.jpg' %}" alt=""></a>
+									</div>
+									<div class="dz-info">
+										<h5 class="title"><a href="{% url 'codesign:blog-details' %}">Aliquam luctus mattis el sollicitudin lacus dapibus non.</a></h5>
+										<div class="dz-meta">
+											<ul>
+												<li class="post-date">7 March 2020</li>
+												<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- subscrible bx -->
+		<section class="">
+			<div class="container">
+				<div class="row ft-subscribe-wrapper justify-content-center text-center">
+					<div class="col-xl-8">
+						<div class="section-head text-center style-1">
+							<h2 class="title">SUBSCRIBE TO GET LATEST NEWS ABOUT US</h2>
+							<p>We recommended you to subscribe to our newslatter, enter your email below to get daily update about us.</p>
+						</div> 
+						<div class="ft-subscribe style-2">
+							<form class="dzSubscribe" action="script/mailchamp.php" method="post">
+								<div class="dzSubscribeMsg"></div>
+								<div class="input-group">
+									<input name="dzEmail" required type="email" class="form-control aos-item" data-aos="fade-in" data-aos-duration="250" data-aos-delay="100" placeholder="Enter Your Email Address">
+									<button name="submit" value="Submit" type="submit" class="btn btn-primary aos-item" data-aos="fade-right" data-aos-duration="750" data-aos-delay="100">SUBSCRIBE NOW <i class="m-l5 las la-plus"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>	
+			
+{% endblock %}

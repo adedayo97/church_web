@@ -1,0 +1,264 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+
+{% block additional_css %}
+<style>
+    .masonry-portfolio {
+        min-height: 500px;
+    }
+    
+    /* Horizontal layout for event cards */
+    .event-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: all 0.3s ease;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .event-card:hover {
+        transform: scale(1.01);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Event content container */
+    .event-content {
+        display: flex;
+        flex: 1;
+        align-items: center;
+    }
+    
+    /* Category styling */
+    .category-block {
+        min-width: 120px;
+        padding-right: 15px;
+    }
+    
+    .sub-title {
+        font-size: 0.9rem;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+    }
+    
+    /* Title and details */
+    .event-details {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    
+    .title {
+        font-size: 1.2rem;
+        margin: 0 15px 0 0;
+        min-width: 200px;
+    }
+    
+    .event-date-time {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+    
+    .event-date {
+        font-size: 0.9rem;
+        color: #ffd700;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    
+    .event-time {
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .event-description {
+        font-size: 0.9rem;
+        color: #333;
+        flex: 1;
+    }
+    
+    /* Table styling */
+    .event-description table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    
+    .event-description th,
+    .event-description td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    
+    .event-description th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+    
+    .event-description td {
+        color: #666;
+    }
+    
+    /* Masonry grid */
+    #masonry {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .masonry-loaded #masonry {
+        opacity: 1;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        .event-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .event-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .event-details {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+        
+        .title {
+            margin: 10px 0;
+            min-width: auto;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Events Section -->
+<section class="content-inner-1 line-img overflow-hidden masonry-portfolio">
+    <div class="container">
+        <div class="site-filters style-1 clearfix center">
+            <ul class="filters" data-toggle="buttons">
+                <li class="btn active">
+                    <input type="radio">
+                    <a href="javascript:void(0);">All</a> 
+                </li>
+                <li data-filter=".weekly" class="btn">
+                    <input type="radio">
+                    <a href="javascript:void(0);">Weekly Services</a> 
+                </li>
+                <li data-filter=".monthly" class="btn">
+                    <input type="radio">
+                    <a href="javascript:void(0);">Monthly Services</a> 
+                </li>
+                <li data-filter=".deliverance" class="btn">
+                    <input type="radio">
+                    <a href="javascript:void(0);">Deliverance</a> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix">
+        <ul id="masonry" class="row spno">
+            {% for event in events %}
+            <li class="card-container col-xl-12 col-md-12 col-sm-12 {{ event.category|lower }} event-card">
+                <div class="event-content">
+                    <div class="category-block">
+                        <h6 class="sub-title">{{ event.category|upper }}</h6>
+                    </div>
+                    <div class="event-details">
+                        <h4 class="title">{{ event.title }}</h4>
+                        <div class="event-date-time">
+                            <p class="event-date">{{ event.date }}</p>
+                            <p class="event-time">{{ event.time }}</p>
+                        </div>
+                        <p class="event-description">{{ event.description|safe }}</p>
+                    </div>
+                </div>
+            </li>
+            {% empty %}
+            <li class="col-12 text-center">No events scheduled at this time.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}
+
+{% block additional_js %}
+<!-- Load required libraries with fallback -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<script>
+// Debugging initialization
+console.log('Portfolio template loaded');
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
+    
+    // Safety check for required libraries
+    if (!window.jQuery || !window.imagesLoaded || !window.Isotope) {
+        console.error('Missing required libraries:');
+        console.log('- jQuery:', !!window.jQuery);
+        console.log('- imagesLoaded:', !!window.imagesLoaded);
+        console.log('- Isotope:', !!window.Isotope);
+        
+        // Fallback - show grid without masonry
+        document.getElementById('masonry').style.opacity = 1;
+        return;
+    }
+
+    // Initialize with safety checks
+    try {
+        console.log('Initializing masonry...');
+        
+        var $grid = $('#masonry').imagesLoaded(function() {
+            console.log('All images loaded, initializing isotope');
+            
+            $grid.isotope({
+                itemSelector: '.card-container',
+                layoutMode: 'fitRows',
+                masonry: {
+                    columnWidth: '.card-container',
+                    gutter: 20
+                }
+            });
+            
+            // Add filter functionality
+            $('.filters').on('click', 'li', function() {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+            });
+            
+            // Show grid after initialization
+            document.body.classList.add('masonry-loaded');
+            console.log('Masonry initialized successfully');
+        });
+        
+    } catch (e) {
+        console.error('Masonry initialization failed:', e);
+        // Fallback - show grid without masonry
+        document.getElementById('masonry').style.opacity = 1;
+    }
+});
+
+// Fallback timeout in case imagesLoaded fails
+setTimeout(function() {
+    if (!document.body.classList.contains('masonry-loaded')) {
+        console.warn('Fallback timeout triggered - showing content');
+        document.getElementById('masonry').style.opacity = 1;
+        document.body.classList.add('masonry-loaded');
+    }
+}, 5000); // 5 second timeout
+</script>
+{% endblock %}

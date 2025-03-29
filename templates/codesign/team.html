@@ -1,0 +1,105 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+
+{% block additional_css %}
+{% endblock %}
+
+{% block content %}
+<!-- Team -->
+<section class="content-inner section-title style-2 line-img" data-name="Our Team">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title">MEET OUR <span class="text-primary">CHURCH LEADERSHIP</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 m-b30">
+                <div class="swiper-container team-swiper">
+                    <div class="swiper-wrapper">
+                        {% for team in team_images %}
+                            <div class="swiper-slide">
+                                <div class="dz-team style-1 text-center m-b30 {% if not forloop.first %}m-t40{% endif %} overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="{% if forloop.first %}200{% else %}400{% endif %}">
+                                    <div class="dz-media shadow">
+                                        <a href="javascript:void(0);"><img src="{{ team.image.url }}" alt="{{ team.name|default:'Team Member' }}"></a>
+                                        <ul class="team-social">
+                                            <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dz-content">
+                                        <h5 class="dz-name">
+                                            <a href="javascript:void(0);">
+                                                {% if team.name %}
+                                                    {{ team.name }}
+                                                {% else %}
+                                                    {% if forloop.counter0 == 0 %}
+                                                        Dr. Daniel Kolawole Olukoya
+                                                    {% else %}
+                                                        Dr. Olusoji Peter
+                                                    {% endif %}
+                                                {% endif %}
+                                            </a>
+                                        </h5>
+                                        <h6 class="dz-position text-primary">
+                                            {% if team.position %}
+                                                {{ team.position }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    General Overseer
+                                                {% else %}
+                                                    Ministering Pastor
+                                                {% endif %}
+                                            {% endif %}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="swiper-slide">
+                                <div class="dz-team style-1 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                    <div class="dz-media shadow">
+                                        <a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic1.jpg' %}" alt="Dr. Daniel Kolawole Olukoya"></a>
+                                        <ul class="team-social">
+                                            <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dz-content">
+                                        <h5 class="dz-name"><a href="javascript:void(0);">Dr. Daniel Kolawole Olukoya</a></h5>
+                                        <h6 class="dz-position text-primary">General Overseer</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="dz-team style-1 text-center m-b30 m-t40 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                                    <div class="dz-media shadow">
+                                        <a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic2.jpg' %}" alt="Dr. Olusoji Peter"></a>
+                                        <ul class="team-social">
+                                            <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dz-content">
+                                        <h5 class="dz-name"><a href="javascript:void(0);">Dr. Olusoji Peter</a></h5>
+                                        <h6 class="dz-position text-primary">Ministering Pastor</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="testimonial-swiper text-center m-t30">
+                        <div class="btn-prev swiper-button-prev4 pe-3"><i class="las la-long-arrow-alt-left"></i>PREV</div>
+                        <div class="btn-next swiper-button-next4 ps-3">NEXT<i class="las la-long-arrow-alt-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

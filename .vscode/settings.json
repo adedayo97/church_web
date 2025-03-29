@@ -1,0 +1,39 @@
+{
+    "workbench.colorTheme": "GitHub Dark",
+    "vscodeGitCommit.variables": {
+        "prefix": "keke"
+    },
+    "conventionalCommits.lineBreak": "\\n",
+    "git-autoconfig.configList": [
+        {
+            "user.name": "index.html"
+        },
+        {
+            "user.email": ""
+        }
+    ],
+    "git-autoconfig.ignoreRootList": [
+        "C:/Users/hp",
+        "C:/Users/hp/Desktop/gpt5_jsm",
+        "C:/Users/hp/Desktop/gerich-resturant",
+        "C:/Users/hp/Desktop/git-clone",
+        "C:/Users/hp/Desktop/Slack-Clone",
+        "C:/Users/hp/slack-tutorial",
+        "C:/Users/hp/Desktop/code folder/slackzz",
+        "C:/Users/hp/slack-clone",
+        "C:/Users/hp/sloockz",
+        "C:/Users/hp/Flowise",
+        "C:/Users/hp/chatbot-deployment",
+        "C:/Users/hp/Chat-Bot-using-gpt-3.5-turbo",
+        "C:/Users/hp/dotnet-react-ai-starter",
+        "C:/Users/hp/Desktop/voiceitout.org",
+        "C:/Users/hp/Desktop/code folder/package"
+    ],
+    "gitlens.advanced.fileHistoryShowMergeCommits": true,
+    "json.schemas": [],
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "stylelint.config": {},
+    "html.validate.styles": false,
+    "stylelint.validate": ["css", "scss", "less"]
+}

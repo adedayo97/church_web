@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	{% load static custom_tags %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="DexignZone">
+	<meta name="robots" content="">
+	<meta name="keywords" content="{{ dz_array.public.keywords }}" />
+	<meta name="description" content="{{ dz_array.public.description }}" />
+	<meta property="og:title" content="{{ dz_array.public.og_title }}" />
+	<meta property="og:description" content="{{ dz_array.public.og_description }}" />
+	<meta property="og:image" content="{{ dz_array.public.og_image }}" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>{{ dz_array.public.title }}</title> <!-- This will display "Give" -->
+    
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/png" href="{% static dz_array.public.favicon  %}" />
+
+    {% for cssurl in dz_array.pagelevel.codesign.codesign_views.css|getdata:request.path %}
+    <link rel="stylesheet" href="{% static cssurl %}" >
+	{% endfor %}
+
+	<!-- Custom Stylesheet -->
+    {% for cssurl in dz_array.global.css %}
+    <link rel="stylesheet" href="{% static cssurl %}">
+	{% endfor %}
+    <link rel="stylesheet" href="{% static 'codesign/css/skin/skin-1.css' %}">
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- Inline CSS for Banner and Layout -->
+	<style>
+		.dz-donation-page {
+			background-image: url("{% static 'codesign/images/banner/banner2.jpg' %}");
+			background-size: cover;
+			background-position: center;
+			position: relative;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 20px; /* Add padding to avoid edge overlap */
+		}
+		.dz-donation-bx {
+			background-color: rgba(255, 255, 255, 0.8);
+			padding: 30px;
+			border-radius: 10px;
+			max-width: 600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.dz-content {
+			color: #333;
+		}
+		.donation-form {
+			margin-bottom: 30px;
+		}
+		.dz-donation-btn {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+			margin-top: 20px;
+		}
+		.dz-donation-btn a {
+			display: inline-block;
+			padding: 10px 20px;
+			text-decoration: none;
+		}
+		.zelle-instructions {
+			display: none;
+			margin-top: 10px;
+			font-size: 0.9em;
+			color: #3d022a;
+		}
+		.home-btn {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			z-index: 10; /* Ensure it’s above other content */
+		}
+	</style>
+</head>
+<body id="bg">
+<div id="loading-area" class="loading-page-1">
+	<div class="loader">
+		Loading..
+	</div>
+</div>
+<div class="page-wraper">
+	<div class="dz-donation-page style-4 wow fadeIn" data-wow-duration="0.80s" data-wow-delay="0.50s">
+		<a href="{% url 'codesign:index' %}" class="btn btn-primary home-btn">Back to Home</a>
+		<div class="clearfix dz-donation-bx">
+			<div class="dz-content">
+				<h2 class="dz-title ml2 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.5s">
+					<span>Support Our Cause,</span><br/><span>Donate Today</span>
+				</h2>
+				<p class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.8s">
+					Your generosity helps us continue our mission. Every donation makes a difference!
+				</p>
+				<div class="donation-form wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="2.0s">
+					<button id="donate-btn" class="btn btn-primary">DONATE NOW</button>
+					<div id="zelle-instructions" class="zelle-instructions">
+						<p>Please use your Zelle app to send your donation to: <strong>donations@yournonprofit.org</strong></p>
+						<p>After sending, contact us to confirm your donation.</p>
+					</div>
+				</div>
+				<div class="dz-donation-btn wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="2.2s">
+					<a href="javascript:void(0);" class="btn btn-primary openbtn black">GET IN TOUCH</a>
+					<a href="{% url 'codesign:about-us' %}" class="btn btn-secondary">LEARN MORE</a>
+				</div>
+			</div>
+		</div>
+		<div class="contact-sidebar">
+			<div class="contact-box">
+				<div class="logo-contact">
+					<a href="{% url 'codesign:index' %}"><img src="{% static 'codesign/images/mfmlogo.png' %}" alt=""></a>
+				</div>
+				
+				<div class="m-b50 contact-text">
+					<div class="dz-title">
+						<h4>About Us</h4>
+						<div class="dz-separator style-1 text-primary mb-0"></div>	
+					</div>
+					<p>Mountain of Fire and Miracles Ministries (MFM) is a full gospel ministry devoted to the revival of apostolic signs, Holy Ghost fireworks, and the unlimited power of God to deliver to the uttermost.</p>
+					<a href="{% url 'codesign:about-us' %}" class="btn btn-primary btn-sm">READ MORE</a>
+				</div>
+				<div class="dz-title">
+					<h4>Contact Info</h4>
+					<div class="dz-separator style-1 text-primary mb-0"></div>	
+				</div>
+				<div class="icon-bx-wraper left">
+					<div class="icon-md m-r20">
+						<span class="icon-cell"><i class="las la-phone-volume"></i></span> 
+					</div>
+					<div class="icon-content">
+						<h5 class="tilte">Call Now</h5>
+						<p class="m-b0">773-310-3610</p>
+					</div>
+				</div>
+				<div class="icon-bx-wraper left">
+					<div class="icon-md m-r20">
+						<span class="icon-cell"><i class="las la-envelope-open"></i></span> 
+					</div>
+					<div class="icon-content">
+						<h5 class="tilte">Email Us</h5>
+						<p class="m-b0">INFO@MFMSOUTHCHICAGO.US</p>
+					</div>
+				</div>
+				<div class="icon-bx-wraper left">
+					<div class="icon-md m-r20">
+						<span class="icon-cell"><i class="las la-map-marker"></i></span> 
+					</div>
+					<div class="icon-content">
+						<h5 class="tilte">Visit Us</h5>
+						<p class="m-b0">Mountain of Fire and Miracles Ministries
+							South Chicago Regional Headquarters 
+							8545 Cottage Grove Avenue 
+							Chicago IL 60619</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="menu-close"></div>
+	</div>	
+</div>
+
+<!-- Scripts -->
+{% for jsurl in dz_array.global.js.top %}
+<script src="{% static jsurl %}"></script>
+{% endfor %}
+
+{% for jsurl in dz_array.pagelevel.codesign.codesign_views.js|getdata:request.path %}
+<script src="{% static jsurl %}"></script>
+{% endfor %}
+
+{% for jsurl in dz_array.global.js.bottom %}
+<script src="{% static jsurl %}"></script>
+{% endfor %}
+
+<!-- JavaScript to toggle Zelle instructions -->
+<script>
+document.getElementById('donate-btn').addEventListener('click', function() {
+    var instructions = document.getElementById('zelle-instructions');
+    if (instructions.style.display === 'none' || instructions.style.display === '') {
+        instructions.style.display = 'block';
+    } else {
+        instructions.style.display = 'none';
+    }
+});
+</script>
+
+{% block additional_js %}
+{% endblock %}
+</body>
+</html>

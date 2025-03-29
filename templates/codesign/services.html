@@ -1,0 +1,187 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+
+{% block additional_css %}
+{% endblock %}
+
+{% block content %}
+<!-- Services -->
+<section class="content-inner-1 line-img overflow-hidden">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title"><span class="text-primary">Our Church Services</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="row justify-content-center">
+            {% if service_images|length >= 3 %}
+                {% for service in service_images|slice:":3" %}
+                    <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-{% cycle 'left' 'down' 'right' %}" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-delay="{% if forloop.counter0 == 0 %}0{% elif forloop.counter0 == 1 %}400{% else %}600{% endif %}">
+                        <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                            <div class="front overlay-black-middle" style="background-image: url('{{ service.image.url }}');">
+                                <div class="inner">
+                                    <div>
+                                        <div class="sep-tl"></div>
+                                        <div class="sep-br"></div>
+                                        <h4 class="title m-b10">
+                                            {% if service.title %}
+                                                {{ service.title }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    Power Must Change Hands
+                                                {% elif forloop.counter0 == 1 %}
+                                                    Sunday Worship
+                                                {% else %}
+                                                    Bible Study
+                                                {% endif %}
+                                            {% endif %}
+                                        </h4>
+                                        <h6 class="sub-title text-primary">
+                                            {% if service.subtitle %}
+                                                {{ service.subtitle }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    PRAYER SERVICE
+                                                {% elif forloop.counter0 == 1 %}
+                                                    CELEBRATION SERVICE
+                                                {% else %}
+                                                    SPIRITUAL GROWTH
+                                                {% endif %}
+                                            {% endif %}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <div>
+                                        <div class="sep-tl"></div>
+                                        <div class="sep-br"></div>
+                                        <div class="icon-lg">
+                                            <span class="icon-cell text-primary"><i class="flaticon-{% if forloop.counter0 == 0 %}prayer{% elif forloop.counter0 == 1 %}church{% else %}bible{% endif %}"></i></span>
+                                        </div>
+                                        <h4 class="title m-b15">
+                                            <a href="" class="text-white">
+                                                {% if service.title %}
+                                                    {{ service.title }}
+                                                {% else %}
+                                                    {% if forloop.counter0 == 0 %}
+                                                        Power Must Change Hands
+                                                    {% elif forloop.counter0 == 1 %}
+                                                        Sunday Worship
+                                                    {% else %}
+                                                        Bible Study
+                                                    {% endif %}
+                                                {% endif %}
+                                            </a>
+                                        </h4>
+                                        <p>
+                                            {% if service.description %}
+                                                {{ service.description }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    Join us for an intense monthly prayer program designed to break strongholds, release miracles, and shift destinies through fervent intercession.
+                                                {% elif forloop.counter0 == 1 %}
+                                                    Experience a dynamic time of praise, worship, and the Word of God every Sunday as we gather to honor and glorify Him.
+                                                {% else %}
+                                                    Dive deep into the Scriptures with us during our weekly Bible study sessions to grow in faith and understanding of God’s Word.
+                                                {% endif %}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+                    <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                        <div class="front overlay-black-middle" style="background-image: url({% static 'codesign/images/services/pic1.jpg' %});">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <h4 class="title m-b10">Power Must Change Hands</h4>
+                                    <h6 class="sub-title text-primary">PRAYER SERVICE</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <div class="icon-lg">
+                                        <span class="icon-cell text-primary"><i class="flaticon-prayer"></i></span>
+                                    </div>
+                                    <h4 class="title m-b15"><a href="" class="text-white">Power Must Change Hands</a></h4>
+                                    <p>Join us for an intense monthly prayer program designed to break strongholds, release miracles, and shift destinies through fervent intercession.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+                    <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                        <div class="front overlay-black-middle" style="background-image: url({% static 'codesign/images/services/pic2.jpg' %});">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <h4 class="title m-b10">Sunday Worship</h4>
+                                    <h6 class="sub-title text-primary">CELEBRATION SERVICE</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <div class="icon-lg">
+                                        <span class="icon-cell text-primary"><i class="flaticon-church"></i></span>
+                                    </div>
+                                    <h4 class="title m-b15"><a href="" class="text-white">Sunday Worship</a></h4>
+                                    <p>Experience a dynamic time of praise, worship, and the Word of God every Sunday as we gather to honor and glorify Him.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-right" data-aos-duration="1500" data-aos-delay="600">
+                    <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                        <div class="front overlay-black-middle" style="background-image: url({% static 'codesign/images/services/pic2.jpg' %});">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <h4 class="title m-b10">Bible Study</h4>
+                                    <h6 class="sub-title text-primary">SPIRITUAL GROWTH</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <div class="icon-lg">
+                                        <span class="icon-cell text-primary"><i class="flaticon-bible"></i></span>
+                                    </div>
+                                    <h4 class="title m-b15"><a href="" class="text-white">Bible Study</a></h4>
+                                    <p>Dive deep into the Scriptures with us during our weekly Bible study sessions to grow in faith and understanding of God’s Word.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <!-- Write-Up Under Services -->
+        <div class="service-summary">
+            <p>At Mountain of Fire and Miracles Ministries Chicago, our services are more than gatherings—they are battlegrounds where the power of God dismantles the works of darkness and ignites the fire of the Holy Spirit in every believer. Rooted in our unwavering commitment to spiritual warfare, deliverance, and the propagation of the gospel of Jesus Christ, we offer a dynamic lineup of programs designed to equip you for victory. From the intense intercession of Power Must Change Hands to the joyous celebration of Sunday Worship and the deep scriptural immersion of our Bible Study, every service is a divine encounter. Here, we train believers to walk in Holy Ghost power, break free from bondage, and turn the joy of our enemies into sorrow. Join us as we stand as an aggressive, victorious army for the Lord—because at MFM Chicago, we don’t just worship; we wage war and win!</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

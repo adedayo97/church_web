@@ -1,0 +1,232 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+
+{% block additional_css %}
+{% endblock %}
+
+{% block content %}
+<!-- About Us -->
+<section class="content-inner line-img section-title style-2" data-name="About Us">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title">WELCOME TO <span class="text-primary">MFM SOUTH CHICAGO</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="row align-items-center about-bx1">
+            <div class="col-lg-6 m-b30">
+                <div class="dz-media">
+                    {% if about_images %}
+                        <img src="{{ about_images.0.image.url }}" alt="{{ about_images.0.title|default:'Main About Image' }}" class="img1 aos-item" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+                        {% if about_images|length > 1 %}
+                            <div class="img2 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                                <img src="{{ about_images.1.image.url }}" alt="{{ about_images.1.title|default:'Secondary About Image' }}">
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <img src="{% static 'codesign/images/about/pic2.jpg' %}" alt="Main About Image" class="img1 aos-item" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+                        <div class="img2 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                            <img src="{% static 'codesign/images/about/pic1.jpg' %}" alt="Secondary About Image">
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6 m-b30 aos-item" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+                <h4 class="title">We Are a Prayerful Community Transforming Lives Through Faith</h4>
+                <div class="year-exp shadow m-b30">
+                    <h2 class="year text-primary"></h2>
+                    <h4 class="text">YEARS OF <span class="text-primary">MINISTRY</span></h4>
+                </div>
+                <p class="m-b15">Welcome to Mountain of Fire and Miracles Ministries (MFM) South Chicago, where we are committed to igniting spiritual revival, fostering fervent prayer, and delivering God’s miracles to our community. Our church is a sanctuary of hope, healing, and holiness, rooted in the power of the Gospel.</p>
+                <p class="m-b30">With a passion for souls and a dedication to spiritual warfare, we stand as a beacon of light, empowering believers to overcome challenges and walk in victory through Christ Jesus.</p>
+                <a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary">LEARN MORE <i class="m-l10 fas fa-caret-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- More About Us -->
+<section class="content-inner bg-white line-img">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title">MORE <span class="text-primary">ABOUT US</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="row features-wraper-1">
+            <div class="col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="icon-bx-wraper style-2 center m-b30">
+                    <div class="icon-bx-md bg-white icon-bx">
+                        <span class="icon-cell text-primary"><i class="flaticon-home"></i></span>
+                    </div>
+                    <div class="icon-content">
+                        <h4 class="title m-b0">Our Roots</h4>
+                        <div class="dz-separator style-2 bg-primary"></div>
+                        <p>
+                            Our roots are:<br>
+                            - To ignite spiritual awakening through prayer and deliverance.<br>
+                            - To establish a ministry born from the vision of Dr. Daniel Kolawole Olukoya, carried forward by faithful servants in South Chicago.<br>
+                            - To build a foundation on the unshakeable truth of God’s Word, empowering believers to overcome darkness.<br>
+                            - To grow from humble beginnings into a thriving church, rooted in the power of the Holy Spirit.<br>
+                            - To remain steadfast in our heritage of fervent intercession and miraculous breakthroughs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                <div class="icon-bx-wraper style-2 center m-b30">
+                    <div class="icon-bx-md bg-white icon-bx">
+                        <span class="icon-cell text-primary"><i class="flaticon-play"></i></span>
+                    </div>
+                    <div class="icon-content">
+                        <h4 class="title m-b0">Our Vision</h4>
+                        <div class="dz-separator style-2 bg-primary"></div>
+                        <p>
+                            Our vision is:<br>
+                            - To see a world transformed by the power of God’s Word and prayer.<br>
+                            - To raise a vibrant community of believers who walk in holiness and victory over every stronghold.<br>
+                            - To ignite revival fires that sweep across nations, bringing salvation and deliverance to the captives.<br>
+                            - To empower every member to fulfill their divine purpose through the anointing of the Holy Spirit.<br>
+                            - To stand as a beacon of hope, turning darkness into light through relentless faith and spiritual warfare.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                <div class="icon-bx-wraper style-2 center m-b30">
+                    <div class="icon-bx-md bg-white icon-bx">
+                        <span class="icon-cell text-primary"><i class="flaticon-happy"></i></span>
+                    </div>
+                    <div class="icon-content">
+                        <h4 class="title m-b0">Our Community</h4>
+                        <div class="dz-separator style-2 bg-primary"></div>
+                        <p>
+                            Our community is:<br>
+                            - A passionate assembly committed to spreading the gospel of our Lord Jesus Christ to every corner of the earth.<br>
+                            - A refuge for God’s children, calling those lost in dormant churches to join us in vibrant, living faith.<br>
+                            - A training ground where believers master spiritual warfare, rising as a bold and victorious army for the Kingdom.<br>
+                            - A Spirit-filled family, baptized in the Holy Ghost and fire, walking daily in the power and presence of the Holy Spirit.<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+                <div class="icon-bx-wraper style-2 center m-b30">
+                    <div class="icon-bx-md bg-white icon-bx">
+                        <span class="icon-cell text-primary"><i class="flaticon-support"></i></span>
+                    </div>
+                    <div class="icon-content">
+                        <h4 class="title m-b0">Our Mission</h4>
+                        <div class="dz-separator style-2 bg-primary"></div>
+                        <p>
+                            Our mission is:<br>
+                            - To propagate the gospel of our Lord Jesus Christ all over the world.<br>
+                            - To bring together children of God who are lost in dead churches.<br>
+                            - To train believers in the art and science of spiritual warfare, making them an aggressive and victorious army for the Lord.<br>
+                            - To train believers to receive Holy Ghost baptism and fire, fostering a daily walk and relationship with the Holy Spirit.<br>
+                            - To turn the joy of our enemies to sorrow through our unwavering commitment to deliverance ministry, a core belief of MFM—those who do not believe in deliverance are not meant to be part of us.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section class="content-inner section-title style-2 line-img" data-name="Our Team">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title">MEET OUR <span class="text-primary">CHURCH LEADERSHIP</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 m-b30">
+                <div class="swiper-container team-swiper">
+                    <div class="swiper-wrapper">
+                        {% for team in team_images %}
+                            <div class="swiper-slide">
+                                <div class="dz-team style-1 text-center m-b30 {% if not forloop.first %}m-t40{% endif %} overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="{% if forloop.first %}200{% else %}400{% endif %}">
+                                    <div class="dz-media shadow">
+                                        <a href="javascript:void(0);"><img src="{{ team.image.url }}" alt="{{ team.name|default:'Team Member' }}"></a>
+                                        <ul class="team-social">
+                                            <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dz-content">
+                                        <h5 class="dz-name">
+                                            <a href="javascript:void(0);">
+                                                {% if team.name %}
+                                                    {{ team.name }}
+                                                {% else %}
+                                                    {% if forloop.counter0 == 0 %}
+                                                        Dr. Daniel Kolawole Olukoya
+                                                    {% else %}
+                                                        Dr. Olusoji Peter
+                                                    {% endif %}
+                                                {% endif %}
+                                            </a>
+                                        </h5>
+                                        <h6 class="dz-position text-primary">
+                                            {% if team.position %}
+                                                {{ team.position }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    General Overseer
+                                                {% else %}
+                                                    Ministering Pastor
+                                                {% endif %}
+                                            {% endif %}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="swiper-slide">
+                                <div class="dz-team style-1 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                    <div class="dz-media shadow">
+                                        <a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic1.jpg' %}" alt="Dr. Daniel Kolawole Olukoya"></a>
+                                        <ul class="team-social">
+                                            <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dz-content">
+                                        <h5 class="dz-name"><a href="javascript:void(0);">Dr. Daniel Kolawole Olukoya</a></h5>
+                                        <h6 class="dz-position text-primary">General Overseer</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="dz-team style-1 text-center m-b30 m-t40 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                                    <div class="dz-media shadow">
+                                        <a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic2.jpg' %}" alt="Dr. Olusoji Peter"></a>
+                                        <ul class="team-social">
+                                            <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dz-content">
+                                        <h5 class="dz-name"><a href="javascript:void(0);">Dr. Olusoji Peter</a></h5>
+                                        <h6 class="dz-position text-primary">Ministering Pastor</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="testimonial-swiper text-center m-t30">
+                        <div class="btn-prev swiper-button-prev4 pe-3"><i class="las la-long-arrow-alt-left"></i>PREV</div>
+                        <div class="btn-next swiper-button-next4 ps-3">NEXT<i class="las la-long-arrow-alt-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,597 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+
+{% block additional_css %}
+    <!-- Ensure Magnific Popup CSS is included -->
+    <link rel="stylesheet" href="{% static 'codesign/css/magnific-popup.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Slider (2 images) -->
+<div class="silder-one">
+    <div class="swiper-container main-silder-swiper">
+        <div class="swiper-wrapper">
+            {% for slide in slider_images %}
+                <div class="swiper-slide">
+                    <div class="silder-img overlayBLACK-light">
+                        <img src="{{ slide.image.url }}" data-swiper-parallax="30%" alt="{{ slide.title|default:'Slide Image' }}">
+                    </div>
+                    <div class="silder-content" data-swiper-parallax="-40%">
+                        <div class="inner-content">
+                            <h6 class="sub-title text-primary">
+                                {% if forloop.counter0 == 0 %}
+                                    {{ slide.subtitle|default:"CHURCH COMMUNITY" }}
+                                {% else %}
+                                    {{ slide.subtitle|default:"FAITH & FELLOWSHIP" }}
+                                {% endif %}
+                            </h6>
+                            <h1 class="title">
+                                {% if slide.title %}
+                                    {{ slide.title|upper }}
+                                {% else %}
+                                    {% if forloop.counter0 == 0 %}
+                                        JOIN OUR SUNDAY <span>WORSHIP</span> <span class="text-primary">GATHERING</span>
+                                    {% else %}
+                                        CELEBRATE WITH OUR <span>CHURCH</span> <span class="text-primary">FAMILY</span>
+                                    {% endif %}
+                                {% endif %}
+                            </h1>
+                            <p class="m-b30">
+                                {% if slide.description %}
+                                    {{ slide.description }}
+                                {% else %}
+                                    {% if forloop.counter0 == 0 %}
+                                        Experience the joy of fellowship and spiritual growth. Come together in faith, prayer, and praise as we worship as a community. All are welcome to join our Sunday gatherings filled with love and inspiration.
+                                    {% else %}
+                                        Join us for uplifting services and special events that bring our community closer. Discover a place where faith meets friendship, and every gathering strengthens our bond in Christ.
+                                    {% endif %}
+                                {% endif %}
+                            </p>
+                            <a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary">LEARN MORE <i class="m-l10 fas fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="swiper-slide">
+                    <div class="silder-img overlayBLACK-light">
+                        <img src="{% static 'codesign/images/main-slider/pic1.jpg' %}" data-swiper-parallax="30%" alt="Church Gathering">
+                    </div>
+                    <div class="silder-content" data-swiper-parallax="-40%">
+                        <div class="inner-content">
+                            <h6 class="sub-title text-primary">CHURCH COMMUNITY</h6>
+                            <h1 class="title">JOIN OUR SUNDAY <span>WORSHIP</span> <span class="text-primary">GATHERING</span></h1>
+                            <p class="m-b30">Experience the joy of fellowship and spiritual growth. Come together in faith, prayer, and praise as we worship as a community. All are welcome to join our Sunday gatherings filled with love and inspiration.</p>
+                            <a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary">LEARN MORE <i class="m-l10 fas fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="silder-img overlayBLACK-light">
+                        <img src="{% static 'codesign/images/main-slider/pic2.jpg' %}" data-swiper-parallax="30%" alt="Church Event">
+                    </div>
+                    <div class="silder-content" data-swiper-parallax="-40%">
+                        <div class="inner-content">
+                            <h6 class="sub-title text-primary">FAITH & FELLOWSHIP</h6>
+                            <h1 class="title">CELEBRATE WITH OUR <span>CHURCH</span> <span class="text-primary">FAMILY</span></h1>
+                            <p class="m-b30">Join us for uplifting services and special events that bring our community closer. Discover a place where faith meets friendship, and every gathering strengthens our bond in Christ.</p>
+                            <a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary">LEARN MORE <i class="m-l10 fas fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="slider-one-pagination">
+            <div class="btn-prev swiper-button-prev1 swiper-button-white"><i class="las la-long-arrow-alt-left"></i>PREV</div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <div class="btn-next swiper-button-next1 swiper-button-white">NEXT<i class="las la-long-arrow-alt-right"></i></div>
+        </div>
+    </div>
+    <div class="follow-info">
+        <div class="inner-info">
+            <h6 class="title text-primary">Follow Us On:</h6>
+            <ul>
+                <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- About Us (2 images) -->
+    <section class="content-inner line-img section-title style-2" data-name="About Us">
+        <div class="container">
+            <div class="section-head style-1 text-center">
+                <h2 class="title">WELCOME TO <span class="text-primary">MFM SOUTH CHICAGO</span></h2>
+                <div class="dz-separator style-1 text-primary"></div>
+            </div>
+            <div class="row align-items-center about-bx1">
+                <div class="col-lg-6 m-b30">
+                    <div class="dz-media">
+                        {% if about_images %}
+                            <img src="{{ about_images.0.image.url }}" alt="{{ about_images.0.title }}" class="img1 aos-item" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+                            {% if about_images|length > 1 %}
+                                <div class="img2 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                                    <img src="{{ about_images.1.image.url }}" alt="{{ about_images.1.title }}">
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <img src="{% static 'codesign/images/about/pic2.jpg' %}" alt="About Image 1" class="img1 aos-item" data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">
+                            <div class="img2 aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                                <img src="{% static 'codesign/images/about/pic1.jpg' %}" alt="About Image 2">
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6 m-b30 aos-item" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+                    <h4 class="title">We Are a Prayerful Community Transforming Lives Through Faith</h4>
+                    <div class="year-exp shadow m-b30">
+                        <h2 class="year text-primary"></h2>
+                        <h4 class="text">YEARS OF <span class="text-primary">MINISTRY</span></h4>
+                    </div>
+                    <p class="m-b15">Welcome to Mountain of Fire and Miracles Ministries (MFM) South Chicago, where we are committed to igniting spiritual revival, fostering fervent prayer, and delivering God’s miracles to our community.</p>
+                    <p class="m-b30">With a passion for souls and a dedication to spiritual warfare, we stand as a beacon of light, empowering believers to overcome challenges and walk in victory through Christ Jesus.</p>
+                    <a href="{% url 'codesign:about-us' %}" class="btn shadow-primary btn-primary">LEARN MORE <i class="m-l10 fas fa-caret-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services (3 images) -->
+<section class="content-inner-1 line-img overflow-hidden">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title">Our Church<span class="text-primary">Services</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="row justify-content-center">
+            {% if service_images|length >= 3 %}
+                {% for service in service_images|slice:":3" %}
+                    <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-{% cycle 'left' 'down' 'right' %}" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+                        <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                            <div class="front overlay-black-middle" style="background-image: url('{{ service.image.url }}');">
+                                <div class="inner">
+                                    <div>
+                                        <div class="sep-tl"></div>
+                                        <div class="sep-br"></div>
+                                        <h4 class="title m-b10">
+                                            {% if service.title %}
+                                                {{ service.title }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    Power Must Change Hands
+                                                {% elif forloop.counter0 == 1 %}
+                                                    Sunday Worship
+                                                {% else %}
+                                                    Bible Study
+                                                {% endif %}
+                                            {% endif %}
+                                        </h4>
+                                        <h6 class="sub-title text-primary">
+                                            {% if service.subtitle %}
+                                                {{ service.subtitle }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    PRAYER SERVICE
+                                                {% elif forloop.counter0 == 1 %}
+                                                    CELEBRATION SERVICE
+                                                {% else %}
+                                                    SPIRITUAL GROWTH
+                                                {% endif %}
+                                            {% endif %}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <div>
+                                        <div class="sep-tl"></div>
+                                        <div class="sep-br"></div>
+                                        <div class="icon-lg">
+                                            <span class="icon-cell text-primary"><i class="flaticon-{% if forloop.counter0 == 0 %}prayer{% elif forloop.counter0 == 1 %}church{% else %}bible{% endif %}"></i></span>
+                                        </div>
+                                        <h4 class="title m-b15">
+                                            <a href="" class="text-white">
+                                                {% if service.title %}
+                                                    {{ service.title }}
+                                                {% else %}
+                                                    {% if forloop.counter0 == 0 %}
+                                                        Power Must Change Hands
+                                                    {% elif forloop.counter0 == 1 %}
+                                                        Sunday Worship
+                                                    {% else %}
+                                                        Bible Study
+                                                    {% endif %}
+                                                {% endif %}
+                                            </a>
+                                        </h4>
+                                        <p>
+                                            {% if service.description %}
+                                                {{ service.description }}
+                                            {% else %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    Join us for an intense monthly prayer program designed to break strongholds, release miracles, and shift destinies through fervent intercession.
+                                                {% elif forloop.counter0 == 1 %}
+                                                    Experience a dynamic time of praise, worship, and the Word of God every Sunday as we gather to honor and glorify Him.
+                                                {% else %}
+                                                    Dive deep into the Scriptures with us during our weekly Bible study sessions to grow in faith and understanding of God’s Word.
+                                                {% endif %}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <!-- Fallback to 3 static images -->
+                <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+                    <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                        <div class="front overlay-black-middle" style="background-image: url({% static 'codesign/images/services/pic1.jpg' %});">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <h4 class="title m-b10">Power Must Change Hands</h4>
+                                    <h6 class="sub-title text-primary">PRAYER SERVICE</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <div class="icon-lg">
+                                        <span class="icon-cell text-primary"><i class="flaticon-prayer"></i></span>
+                                    </div>
+                                    <h4 class="title m-b15"><a href="" class="text-white">Power Must Change Hands</a></h4>
+                                    <p>Join us for an intense monthly prayer program designed to break strongholds, release miracles, and shift destinies through fervent intercession.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="400">
+                    <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                        <div class="front overlay-black-middle" style="background-image: url({% static 'codesign/images/services/pic2.jpg' %});">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <h4 class="title m-b10">Sunday Worship</h4>
+                                    <h6 class="sub-title text-primary">CELEBRATION SERVICE</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <div class="icon-lg">
+                                        <span class="icon-cell text-primary"><i class="flaticon-church"></i></span>
+                                    </div>
+                                    <h4 class="title m-b15"><a href="" class="text-white">Sunday Worship</a></h4>
+                                    <p>Experience a dynamic time of praise, worship, and the Word of God every Sunday as we gather to honor and glorify Him.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 aos-item" data-aos="flip-right" data-aos-duration="1500" data-aos-delay="600">
+                    <div class="icon-bx-wraper style-1 m-b30 flip-bx" data-name="1.">
+                        <div class="front overlay-black-middle" style="background-image: url({% static 'codesign/images/services/pic2.jpg' %});">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <h4 class="title m-b10">Bible Study</h4>
+                                    <h6 class="sub-title text-primary">SPIRITUAL GROWTH</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <div>
+                                    <div class="sep-tl"></div>
+                                    <div class="sep-br"></div>
+                                    <div class="icon-lg">
+                                        <span class="icon-cell text-primary"><i class="flaticon-bible"></i></span>
+                                    </div>
+                                    <h4 class="title m-b15"><a href="" class="text-white">Bible Study</a></h4>
+                                    <p>Dive deep into the Scriptures with us during our weekly Bible study sessions to grow in faith and understanding of God’s Word.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'codesign:services' %}" class="btn shadow-primary btn-primary">EXPLORE ALL SERVICES <i class="m-l10 fas fa-caret-right"></i></a>
+        </div>
+    </div>
+</section>
+
+   <!-- Content Box (1 image) -->
+   <section class="dz-content-bx style-1 line-img p-t50">
+    <div class="dz-content-inner bg-gray" style="background-image: url({% static 'codesign/images/background/pattern1.png' %}); background-repeat:no-repeat; background-position:right;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="video-bx content-media style-1">
+                        {% if video_image and video_image.image and video_image.youtube_url %}
+                            <img src="{{ video_image.image.url }}" alt="{{ video_image.title|default:'Video Image' }}">
+                            <div class="video-btn aos-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">
+                                <a href="{{ video_image.youtube_url }}" class="popup-youtube"><i class="flaticon-play"></i></a>
+                            </div>
+                        {% else %}
+                            <img src="{% static 'codesign/images/video/pic1.jpg' %}" alt="Video Image">
+                            <div class="video-btn aos-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">
+                                <a href="https://www.youtube.com/watch?v=UWenPkaGVmc" class="popup-youtube"><i class="flaticon-play"></i></a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6 inner-content">
+                    <div class="section-head style-1">
+                        <h2 class="title">JOIN US AS WE <span class="text-primary">BUILD YOUR FAITH</span></h2>
+                        <div class="dz-separator style-1 text-primary"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                            <div class="icon-bx-wraper style-2 left m-b50">
+                                <div class="icon-bx-md icon-bx m-r20">1</div>
+                                <div class="icon-content">
+                                    <h4 class="title m-b0">Prayer</h4>
+                                    <div class="dz-separator style-2 bg-primary"></div>
+                                    <p>We ignite your spiritual life with fervent prayer, creating a deep connection with God. Through faith-filled supplication, we seek His guidance, strength, and blessings in every aspect of life. Whether in moments of joy or trials, prayer remains our source of hope, renewal, and divine intervention.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6 aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                            <div class="icon-bx-wraper style-2 left m-b50">
+                                <div class="icon-bx-md icon-bx m-r20">2</div>
+                                <div class="icon-content">
+                                    <h4 class="title m-b0">Worship</h4>
+                                    <div class="dz-separator style-2 bg-primary"></div>
+                                    <p>Experience uplifting worship that draws you closer to God, filling your heart with His presence. Through heartfelt praise, soul-stirring music, and deep adoration, we celebrate His goodness and grace. Worship is more than just a song—it is a powerful encounter that renews the spirit, strengthens faith, and unites us as one body in Christ. Come and lift your voice as we glorify the Lord together.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6 aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                            <div class="icon-bx-wraper style-2 left m-b50">
+                                <div class="icon-bx-md icon-bx m-r20">3</div>
+                                <div class="icon-content">
+                                    <h4 class="title m-b0">Teaching</h4>
+                                    <div class="dz-separator style-2 bg-primary"></div>
+                                    <p>Receive life-changing teachings from the Bible that inspire, transform, and guide you in your spiritual journey. Through deep biblical insights, practical wisdom, and Spirit-led revelation, we equip believers to grow in faith and live according to God’s Word. Whether through sermons, Bible studies, or discipleship programs, our teachings provide the foundation for a Christ-centered life. Join us as we explore the Scriptures and discover God’s truth for every season of life.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6 aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
+                            <div class="icon-bx-wraper style-2 left m-b50">
+                                <div class="icon-bx-md icon-bx m-r20">4</div>
+                                <div class="icon-content">
+                                    <h4 class="title m-b0">Deliverance</h4>
+                                    <div class="dz-separator style-2 bg-primary"></div>
+                                    <p>Through powerful deliverance sessions, embrace God’s freedom and break every chain of bondage. By the authority of Christ, we stand against oppression, fear, and strongholds, declaring victory over every spiritual battle. Experience healing, restoration, and divine breakthrough as God’s power sets you free. Walk in the fullness of His purpose, unshackled and renewed, as you claim the freedom that Christ has already won for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Team (2 images) -->
+    <section class="content-inner section-title style-2 line-img" data-name="Our Team">
+        <div class="container">
+            <div class="section-head style-1 text-center">
+                <h2 class="title">MEET OUR <span class="text-primary">CHURCH LEADERSHIP</span></h2>
+                <div class="dz-separator style-1 text-primary"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 m-b30">
+                    <div class="swiper-container team-swiper">
+                        <div class="swiper-wrapper">
+                            {% for team in team_images %}
+                                <div class="swiper-slide">
+                                    <div class="dz-team style-1 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="{% if forloop.first %}200{% else %}400{% endif %}">
+                                        <div class="dz-media shadow">
+                                            <a href="javascript:void(0);"><img src="{{ team.image.url }}" alt="{{ team.name }}"></a>
+                                            <ul class="team-social">
+                                                <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dz-content">
+                                            <h5 class="dz-name"><a href="javascript:void(0);">{{ team.name }}</a></h5>
+                                            <h6 class="dz-position text-primary">{{ team.position }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="swiper-slide">
+                                    <div class="dz-team style-1 text-center m-b30 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                        <div class="dz-media shadow">
+                                            <a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic1.jpg' %}" alt="Team Image 1"></a>
+                                            <ul class="team-social">
+                                                <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dz-content">
+                                            <h5 class="dz-name"><a href="javascript:void(0);">Dr. Daniel Kolawole Olukoya</a></h5>
+                                            <h6 class="dz-position text-primary">General Overseer</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="dz-team style-1 text-center m-b30 m-t40 overlay-shine aos-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                                        <div class="dz-media shadow">
+                                            <a href="javascript:void(0);"><img src="{% static 'codesign/images/team/pic2.jpg' %}" alt="Team Image 2"></a>
+                                            <ul class="team-social">
+                                                <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dz-content">
+                                            <h5 class="dz-name"><a href="javascript:void(0);">Dr. Olusoji Peter</a></h5>
+                                            <h6 class="dz-position text-primary">Ministering Pastor</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="testimonial-swiper text-center m-t30">
+                            <div class="btn-prev swiper-button-prev4 pe-3"><i class="las la-long-arrow-alt-left"></i>PREV</div>
+                            <div class="btn-next swiper-button-next4 ps-3">NEXT<i class="las la-long-arrow-alt-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog (2 images) -->
+    <section class="content-inner-1 line-img">
+        <div class="container">
+            <div class="section-head style-1 text-center">
+                <h2 class="title">STAY CONNECTED <span class="text-primary">WITH MFM SOUTH CHICAGO</span></h2>
+                <div class="dz-separator style-1 text-primary"></div>
+            </div>
+            <div class="blog-area">
+                <div class="swiper-container blog-swiper">
+                    <div class="swiper-wrapper">
+                        {% for blog in blog_images %}
+                            <div class="swiper-slide">
+                                <div class="dz-card blog-grid style-1 aos-item" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="{% if forloop.first %}200{% else %}500{% endif %}">
+                                    <div class="dz-media">
+                                        <a href="{% url 'codesign:blog-details' blog.id %}"><img src="{{ blog.image.url }}" alt="{{ blog.title|default:'Untitled' }}"></a>
+                                    </div>
+                                    <div class="dz-info">
+                                        <div class="dz-meta">
+                                            <ul>
+                                                <li class="post-date">{{ blog.post_date|date:"d F Y" }}</li>
+                                                <li class="post-user">By <a href="javascript:void(0);">{{ blog.author|default:'Unknown' }}</a></li>
+                                            </ul>
+                                        </div>
+                                        <h5 class="dz-title"><a href="{% url 'codesign:blog-details' blog.id %}">{{ blog.title|default:'Untitled' }}</a></h5>
+                                        <div class="dz-post-text text">
+                                            <p>{{ blog.description|truncatewords:30 }}</p>
+                                        </div>
+                                        <a href="{% url 'codesign:blog-details' blog.id %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="swiper-slide">
+                                <div class="dz-card blog-grid style-1 aos-item" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+                                    <div class="dz-media">
+                                        <a href="{% url 'codesign:blog-details' 1 %}"><img src="{% static 'codesign/images/blog/blog-grid/pic1.jpg' %}" alt="Blog Image 1"></a>
+                                    </div>
+                                    <div class="dz-info">
+                                        <div class="dz-meta">
+                                            <ul>
+                                                <li class="post-date">15 March 2025</li>
+                                                <li class="post-user">By <a href="javascript:void(0);">General Overseer</a></li>
+                                            </ul>
+                                        </div>
+                                        <h5 class="dz-title"><a href="{% url 'codesign:blog-details' 1 %}">Victory Over the Spirit of Fear</a></h5>
+                                        <div class="dz-post-text text">
+                                            <p>Are you prepared to discover how to dismantle the spirit of fear the enemy has erected in your mind and heart? Jesus revealed the solution to you.</p>
+                                        </div>
+                                        <a href="{% url 'codesign:blog-details' 1 %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="dz-card blog-grid style-1 aos-item" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+                                    <div class="dz-media">
+                                        <a href="{% url 'codesign:blog-details' 2 %}"><img src="{% static 'codesign/images/blog/blog-grid/pic2.jpg' %}" alt="Blog Image 2"></a>
+                                    </div>
+                                    <div class="dz-info">
+                                        <div class="dz-meta">
+                                            <ul>
+                                                <li class="post-date">16 March 2025</li>
+                                                <li class="post-user">By <a href="javascript:void(0);">Sis. Grace</a></li>
+                                            </ul>
+                                        </div>
+                                        <h5 class="dz-title"><a href="{% url 'codesign:blog-details' 2 %}">Latest Sermon: Creating From the Well Spring of Peace</a></h5>
+                                        <div class="dz-post-text text">
+                                            <p>A vision for our existence with God that is based on peace is crucial in a world that often feels like it is overtaken by violence.</p>
+                                        </div>
+                                        <a href="{% url 'codesign:blog-details' 2 %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'chatbot/widget.html' %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sendBtn = document.querySelector('.send-btn');
+            const input = document.getElementById('userInput');
+            const messages = document.getElementById('chatMessages');
+
+            console.log('Send button:', sendBtn);
+            console.log('Input:', input);
+            console.log('Messages:', messages);
+
+            sendBtn.addEventListener('click', function() {
+                console.log('Send clicked');
+                const message = input.value.trim();
+                if (message) {
+                    const div = document.createElement('div');
+                    div.className = 'message user';
+                    div.textContent = message;
+                    messages.appendChild(div);
+                    input.value = '';
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block additional_scripts %}
+    <!-- Ensure jQuery and Magnific Popup JS are included -->
+    <script src="{% static 'codesign/js/jquery.min.js' %}"></script>
+    <script src="{% static 'codesign/js/magnific-popup.min.js' %}"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Magnific Popup initialization
+            $('.popup-youtube').magnificPopup({
+                type: 'iframe',
+                iframe: {
+                    patterns: {
+                        youtube: {
+                            index: 'youtube.com/',
+                            id: 'v=',
+                            src: '//www.youtube.com/embed/%id%?autoplay=1'
+                        }
+                    }
+                }
+            });
+
+             
+        });
+    </script>
+{% endblock %}

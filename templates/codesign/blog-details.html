@@ -1,0 +1,92 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static split_tags %}
+
+{% block additional_css %}
+    <style>
+        .blog-detail-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .extra-section { background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-top: 20px; }
+        .dz-card { max-width: 900px; margin: 0 auto; }
+        .section-title { color: #007bff; font-size: 1.5rem; margin-bottom: 1rem; }
+        .prayer-point { font-style: italic; color: #555; }
+        .navigation-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+    </style>
+{% endblock %}
+
+{% block content %}
+<section class="content-inner-1 line-img">
+    <div class="container">
+        <div class="section-head style-1 text-center">
+            <h2 class="title">{{ blog.title|default:"Untitled" }} <span class="text-primary">DETAILS</span></h2>
+            <div class="dz-separator style-1 text-primary"></div>
+        </div>
+        <div class="blog-detail-area">
+            <div class="dz-card blog-grid style-1 aos-item" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+                <div class="dz-media">
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title|default:'Untitled' }}" class="img-fluid">
+                </div>
+                <div class="dz-info">
+                    <div class="dz-meta">
+                        <ul>
+                            <li class="post-date">{{ blog.post_date|date:"d F Y" }}</li>
+                            <li class="post-user">By <a href="javascript:void(0);">{{ blog.author|default:"Unknown" }}</a></li>
+                        </ul>
+                    </div>
+                    <h5 class="dz-title">{{ blog.title|default:"Untitled" }}</h5>
+                    <div class="dz-post-text blog-detail-content text">
+                        <!-- Preview from Index -->
+                        <p>{{ blog.description }}</p>
+
+                        <!-- Full Content from Admin -->
+                        <p>{{ blog.full_content }}</p>
+
+                        <!-- Dynamic Scripture Reflection -->
+                        <h6 class="section-title">Scripture Reflection</h6>
+                        <p><strong>{{ blog.scripture|default:"No scripture provided." }}</strong></p>
+                        <p>Reflect on this verse: How does it speak to your current situation? Take a moment to pray it over your life.</p>
+
+                        <!-- Additional Teaching -->
+                        <h6 class="section-title">Deepening Your Understanding</h6>
+                        <p>This message is a call to live out God’s word. Whether it’s overcoming obstacles or embracing His promises, consistency is key. What’s one change you can make today based on this teaching?</p>
+                    </div>
+
+                    <!-- Dynamic Prayer Points Section -->
+                    <div class="extra-section">
+                        <h6 class="section-title">Prayer Points</h6>
+                        <p>Pray these over your life this week:</p>
+                        <ul>
+                            {% for point in blog.prayer_points|split:"|" %}
+                                <li class="prayer-point">{{ point }}</li>
+                            {% empty %}
+                                <li class="prayer-point">Lord, anchor me in Your truth.</li>
+                                <li class="prayer-point">Strengthen my faith today.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Personal Challenge Section -->
+                    <div class="extra-section">
+                        <h6 class="section-title">Personal Challenge</h6>
+                        <p>Set aside 15 minutes today to meditate on the scripture and full content. Write down one insight and one action step to share with us at our next service!</p>
+                    </div>
+
+                    <!-- Community Connection -->
+                    <div class="extra-section">
+                        <h6 class="section-title">Connect With Us</h6>
+                        <p>Join us this Sunday at 10 AM to discuss this blog, or follow us on social media to stay connected.</p>
+                    </div>
+
+                    <div class="navigation-buttons">
+						{% if prev_blog %}
+							<a href="{% url 'codesign:blog-details' prev_blog.id %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-arrow-left"></i> Prev: {{ prev_blog.title|default:"Previous Post" }}</a>
+						{% else %}
+							<a href="{% url 'codesign:index' %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Blogs</a>
+						{% endif %}
+						{% if next_blog %}
+							<a href="{% url 'codesign:blog-details' next_blog.id %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-arrow-right"></i> Next: {{ next_blog.title|default:"Next Post" }}</a>
+						{% endif %}
+					</div>                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

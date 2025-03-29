@@ -1,0 +1,241 @@
+{% extends 'codesign/elements/layouts/layout.html' %}
+{% load static %}
+        
+{% block additional_css %}
+{% endblock %}
+		
+{% block content %}
+
+		<!-- Blog Large -->
+		<div class="content-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-4 m-b30 dz-order-1">
+						<aside class="side-bar sticky-top left">
+							<div class="widget widget_tag_cloud">
+                                <div class="widget-title">
+									<h5 class="title">Search</h5>
+									<div class="dz-separator style-1 text-primary mb-0"></div>
+								</div>
+                                <div class="search-bx">
+                                    <form role="search" method="post">
+                                        <div class="input-group">
+                                            <input name="text" class="form-control" placeholder="Enter your keywords..." type="text">
+                                            <span class="input-group-btn">
+												<button type="submit" class="btn btn-primary sharp radius-no"><i class="la la-search scale3"></i></button>
+												</span> 
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+							<div class="widget widget_categories">
+                                <div class="widget-title">
+									<h5 class="title">Categories</h5>
+									<div class="dz-separator style-1 text-primary mb-0"></div>
+								</div>
+                                <ul>
+                                    <li class="cat-item"><a href="javascript:void(0);">Residence</a></li>                                         
+									<li class="cat-item"><a href="javascript:void(0);">Beauty</a></li>                                         
+									<li class="cat-item"><a href="javascript:void(0);">Fashion</a></li>                                         
+									<li class="cat-item"><a href="javascript:void(0);">Images</a></li>                                         
+									<li class="cat-item"><a href="javascript:void(0);">Lifestyle</a></li> 
+                                </ul>
+                            </div>
+                            <div class="widget recent-posts-entry">
+                                <div class="widget-title">
+									<h5 class="title">Recent Posts</h5>
+									<div class="dz-separator style-1 text-primary mb-0"></div>
+								</div>
+                                <div class="widget-post-bx">
+                                    <div class="widget-post clearfix">
+                                        <div class="dz-media"> 
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic1.jpg' %}" alt=""></a>
+										</div>
+                                        <div class="dz-info">
+											<h4 class="title"><a href="{% url 'codesign:blog-details' %}">Fusce mollis felis quis tristique</a></h4>
+                                            <div class="dz-meta">
+												<ul>
+													<li class="post-date"> 7 March, 2020 </li>
+												</ul>
+											</div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-post clearfix">
+                                        <div class="dz-media"> 
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic2.jpg' %}" alt=""></a>
+										</div>
+                                        <div class="dz-info">
+											<h4 class="title"><a href="{% url 'codesign:blog-details' %}">Fusce mollis felis quis tristique</a></h4>
+											<div class="dz-meta">
+												<ul>
+													<li class="post-date"> 7 March, 2020 </li>
+												</ul>
+											</div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-post clearfix">
+                                        <div class="dz-media"> 
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic3.jpg' %}" alt=""></a>
+										</div>
+                                        <div class="dz-info">
+											<h4 class="title"><a href="{% url 'codesign:blog-details' %}">Fusce mollis felis quis tristique</a></h4>
+                                            <div class="dz-meta">
+												<ul>
+													<li class="post-date"> 7 March, 2020 </li>
+												</ul>
+											</div>
+                                        </div>
+                                    </div>
+									<div class="widget-post clearfix">
+                                        <div class="dz-media"> 
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/recent-blog/pic4.jpg' %}" alt=""></a>
+										</div>
+                                        <div class="dz-info">
+											<h4 class="title"><a href="{% url 'codesign:blog-details' %}">Fusce mollis felis quis tristique</a></h4>
+                                            <div class="dz-meta">
+												<ul>
+													<li class="post-date"> 7 March, 2020 </li>
+												</ul>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="widget widget widget_categories">
+                                <div class="widget-title">
+									<h5 class="title">Archives</h5>
+									<div class="dz-separator style-1 text-primary mb-0"></div>
+								</div>
+                                <ul>
+                                    <li><a href="javascript:void(0);">January</a>(3)</li>
+                                    <li><a href="javascript:void(0);">Fabruary</a>(4)</li>
+                                    <li><a href="javascript:void(0);">March</a>(4)</li>
+                                    <li><a href="javascript:void(0);">April</a>(3)</li>
+                                    <li><a href="javascript:void(0);">May</a>(4)</li>
+                                    <li><a href="javascript:void(0);">Jun</a>(1)</li>
+                                    <li><a href="javascript:void(0);">July</a>(4)</li>
+                                </ul>
+                            </div>
+							
+                        </aside>
+					</div>
+					<div class="col-xl-8 col-lg-8">
+						<div class="dz-card blog-half style-1 m-b50 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+							<div class="dz-media">
+								<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/large/pic1.jpg' %}" alt=""></a>
+							</div>
+							<div class="dz-info">
+								<div class="dz-meta">
+									<ul>
+										<li class="post-date">7 March 2020</li>
+										<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+									</ul>
+								</div>
+								<h3 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Praesent pharetra congue sem, nec euismod nisi.</a></h3>
+								<div class="dz-post-text text">
+									<p>Sed non sapien urna. Cras quis porta risus, vitae pulvinar nibh. In hac habitasse platea dictumst.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+							</div>
+						</div>
+						<div class="dz-card blog-half style-1 m-b50 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+							<div class="dz-media">
+								<div class="swiper-container post-swiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/large/pic2.jpg' %}" alt=""></a>
+										</div>
+										<div class="swiper-slide">
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/large/pic1.jpg' %}" alt=""></a>
+										</div>
+										<div class="swiper-slide">
+											<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/large/pic3.jpg' %}" alt=""></a>
+										</div>
+									</div>
+									<div class="prev-post-swiper-btn"><i class="la fa-angle-left"></i></div>
+									<div class="next-post-swiper-btn"><i class="la fa-angle-right"></i></div>
+								</div>
+							</div>
+							<div class="dz-info">
+								<div class="dz-meta">
+									<ul>
+										<li class="post-date">7 March 2020</li>
+										<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+									</ul>
+								</div>
+								<h3 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Praesent pharetra congue sem, nec euismod nisi.</a></h3>
+								<div class="dz-post-text text">
+									<p>Sed non sapien urna. Cras quis porta risus, vitae pulvinar nibh. In hac habitasse platea dictumst.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+							</div>
+						</div>
+						<div class="dz-card blog-half style-1 m-b50 post-video aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+							<div class="dz-media">
+								<a href="{% url 'codesign:blog-details' %}">
+									<img src="{% static 'codesign/images/blog/large/pic3.jpg' %}" alt="">
+									<div class="post-video-icon fa fa-play"></div>
+								</a>
+							</div>
+							<div class="dz-info">
+								<div class="dz-meta">
+									<ul>
+										<li class="post-date">7 March 2020</li>
+										<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+									</ul>
+								</div>
+								<h3 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Praesent pharetra congue sem, nec euismod nisi.</a></h3>
+								<div class="dz-post-text text">
+									<p>Sed non sapien urna. Cras quis porta risus, vitae pulvinar nibh. In hac habitasse platea dictumst.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+							</div>
+						</div>
+						<div class="dz-card blog-half style-1 m-b50 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+							<div class="dz-info">
+								<div class="dz-meta">
+									<ul>
+										<li class="post-date">7 March 2020</li>
+										<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+									</ul>
+								</div>
+								<h3 class="dz-title"><a href="{% url 'codesign:blog-details' %}">“ Praesent pharetra congue sem, nec euismod nisi fermentum sit amet ” </a></h3>
+								<div class="dz-post-text text">
+									<p>Sed non sapien urna. Cras quis porta risus, vitae pulvinar nibh. In hac habitasse platea dictumst. Integer congue et enim cursus porttitor. Vestibulum mattis placerat magna, sit amet laoreet sapien.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+							</div>
+						</div>
+						<div class="dz-card blog-half style-1 m-b50 aos-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+							<div class="dz-media">
+								<a href="{% url 'codesign:blog-details' %}"><img src="{% static 'codesign/images/blog/large/pic2.jpg' %}" alt=""></a>
+							</div>
+							<div class="dz-info">
+								<div class="dz-meta">
+									<ul>
+										<li class="post-date">7 March 2020</li>
+										<li class="post-user">By <a href="javascript:void(0);">John Doe</a></li>
+									</ul>
+								</div>
+								<h3 class="dz-title"><a href="{% url 'codesign:blog-details' %}">Praesent pharetra congue sem, nec euismod nisi.</a></h3>
+								<div class="dz-post-text text">
+									<p>Sed non sapien urna. Cras quis porta risus, vitae pulvinar nibh. In hac habitasse platea dictumst.</p>
+								</div>
+								<a href="{% url 'codesign:blog-details' %}" class="btn shadow-primary icon-btn btn-primary"><i class="fas fa-caret-right"></i></a>
+							</div>
+						</div>
+						<nav aria-label="Blog Pagination">
+							<ul class="pagination text-center m-b30">
+								<li class="page-item"><a class="page-link prev" href="javascript:void(0);"><i class="la la-angle-left"></i></a></li>
+								<li class="page-item"><a class="page-link active" href="javascript:void(0);">1</a></li>
+								<li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+								<li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+								<li class="page-item"><a class="page-link next" href="javascript:void(0);"><i class="la la-angle-right"></i></a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

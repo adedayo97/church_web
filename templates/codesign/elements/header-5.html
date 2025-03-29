@@ -1,0 +1,123 @@
+{% load static %}
+
+	<!-- Header -->
+	<header class="site-header mo-left header style-1">
+		<!-- Main Header -->
+		<div class="main-bar-wraper navbar-expand-lg">
+			<div class="main-bar clearfix ">
+				<div class="container clearfix">
+					<!-- Website Logo -->
+					<div class="logo-header mostion logo-dark">
+						<a href="{% url 'codesign:index' %}"><img src="{% static 'codesign/images/logo-4.png' %}" alt=""></a>
+					</div>
+					<!-- Nav Toggle Button -->
+					<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<!-- Extra Nav -->
+					<div class="extra-nav">
+						<div class="extra-cell">
+							<a class="search-link m-l10" id="quik-search-btn" href="javascript:void(0);">
+								<i class="flaticon-loupe"></i>
+							</a>
+						</div>
+					</div>
+					<!-- Quik Search -->
+					<div class="dz-quik-search">
+						<form action="#">
+							<input name="search" value="" type="text" class="form-control" placeholder="Enter Your Keyword ...">
+							<span  id="quik-search-remove"><i class="ti-close"></i></span>
+						</form>
+					</div>
+					<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+						<div class="logo-header logo-dark">
+							<a href="{% url 'codesign:index' %}"><img src="{% static 'codesign/images/logo-5.png' %}" alt=""></a>
+						</div>
+						<ul class="nav navbar-nav navbar navbar-left">	
+							<li class="sub-menu-down active"><a href="javascript:void(0);">Home</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'codesign:index' %}">Home 1</a></li>
+									<li><a href="{% url 'codesign:index-2' %}">Home 2</a></li>
+									<li><a href="{% url 'codesign:index-3' %}">Home 3</a></li>
+									<li><a href="{% url 'codesign:index-4' %}">Home 4</a></li>
+									<li><a href="{% url 'codesign:index-5' %}">Home 5<span class="new-page">New</span></a></li>
+									<li><a href="{% url 'codesign:index-6' %}">Home 6<span class="new-page">New</span></a></li>
+								</ul>
+							</li>
+							<li class="sub-menu-down"><a href="javascript:void(0);">Pages</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'codesign:about-us' %}">About Us</a></li>
+									<li><a href="{% url 'codesign:team' %}">Team</a></li>
+									<li><a href="{% url 'codesign:coming-soon' %}">Coming Soon</a></li>
+									<li><a href="{% url 'codesign:under-construct' %}">Under Construct</a></li>
+									<li><a href="{% url 'codesign:error-404' %}">Error 404</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu-down"><a href="javascript:void(0);">Portfolio</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'codesign:portfolio' %}">Portfolio</a></li>
+									<li><a href="{% url 'codesign:portfolio-details' %}">Portfolio Details</a></li>
+								</ul>
+							</li>	
+							<li class="sub-menu-down"><a href="javascript:void(0);">Services</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'codesign:services' %}">Services</a></li>
+									<li><a href="{% url 'codesign:services-details' %}">Services Details</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu-down"><a href="javascript:void(0);">Blog</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'codesign:blog-grid' %}">Blog Grid</a></li>
+									<li><a href="{% url 'codesign:blog-large-left-sidebar' %}">Large Left Sidebar</a></li>
+									<li><a href="{% url 'codesign:blog-list-left-sidebar' %}">List Left Sidebar</a></li>
+									<li><a href="{% url 'codesign:blog-details' %}">Blog Details</a></li>
+								</ul>
+							</li>
+							<li><a href="{% url 'codesign:contact-us' %}">Contact Us</a></li>
+						</ul>
+						<div class="dz-social-icon">
+							<ul>
+								<li><a class="fab fa-facebook-f" href="javascript:void(0);"></a></li>
+								<li><a class="fab fa-twitter" href="javascript:void(0);"></a></li>
+								<li><a class="fab fa-linkedin-in" href="javascript:void(0);"></a></li>
+								<li><a class="fab fa-instagram" href="javascript:void(0);"></a></li>
+							</ul>
+						</div>	
+					</div>
+				</div>
+			</div>
+		<!-- Main Header End -->
+		</div>	
+	</header>
+	<!-- Header End -->
+	<!-- InquiryModal -->
+	<div class="modal fade inquiry-modal" id="exampleModal" tabindex="-1" role="dialog"  aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="inquiry-adv">
+				<img src="{% static 'codesign/images/img1.jpg' %}" alt="">
+			</div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<i class="flaticon-email"></i>
+					<h5 class="modal-title" id="exampleModalLongTitle">SUBSCRIBE TO OUR NEWSLATTER</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="dzSubscribeMsg"></div>
+					<form action="script/mailchamp.php" class="dzSubscribe" method="post">
+						<div class="form-group mb-3">
+							<input type="text" name="dzName" required class="form-control" placeholder="YOUR NAME">
+						</div>
+						<div class="form-group mb-3">
+							<input type="email" name="dzEmail" required class="form-control" placeholder="YOUR EMAIL ADDRESS">
+						</div>
+						<div class="form-group text-center">
+							<button name="submit" type="submit" value="Submit" class="btn btn-primary">SUBSCRIBE NOW</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>

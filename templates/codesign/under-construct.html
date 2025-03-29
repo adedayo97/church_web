@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	{% load static custom_tags %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="DexignZone">
+	<meta name="robots" content="">
+	<meta name="keywords" content="{{ dz_array.public.keywords }}" />
+	<meta name="description" content="{{ dz_array.public.description }}" />
+	<meta property="og:title" content="{{ dz_array.public.og_title }}" />
+	<meta property="og:description" content="{{ dz_array.public.og_description }}" />
+	<meta property="og:image" content="{{ dz_array.public.og_image }}" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>{{ dz_array.public.title }}</title>
+    
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/png" href="{% static dz_array.public.favicon  %}" />
+
+    {% for cssurl in dz_array.pagelevel.codesign.codesign_views.css|getdata:request.path %}
+    <link rel="stylesheet" href="{% static cssurl %}" >
+	{% endfor %}
+
+	<!-- Custom Stylesheet -->
+    {% for cssurl in dz_array.global.css %}
+    <link rel="stylesheet" href="{% static cssurl %}">
+	{% endfor %}
+    <link rel="stylesheet" href="{% static 'codesign/css/skin/skin-1.css' %}">
+	<!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body id="bg">
+	<div id="loading-area" class="loading-page-1">
+		<div class="loader">
+			Loading..
+		</div>
+	</div>
+	<div class="under-construct">
+		<div class="inner-box">
+			<div class="logo-header logo-dark">
+				<a href="{% url 'codesign:index' %}"><img src="{% static 'codesign/images/logo.png' %}" alt=""></a>
+			</div>	
+			<div class="dz-content">
+			<h2 class="dz-title">SITE IS DOWN <br/>FOR <span class="text-primary">MAINTENANCE</span></h2>
+				<p>This is the Technical Problems Page.<br/> Or any other page.</p>
+			</div>
+		</div>
+	</div>	
+
+<!--**********************************
+	Scripts
+***********************************-->
+<!-- Required vendors -->
+{% for jsurl in dz_array.global.js.top %}
+<script src="{% static jsurl %}"></script>
+{% endfor %}
+
+{% for jsurl in dz_array.pagelevel.codesign.codesign_views.js|getdata:request.path %}
+<script src="{% static jsurl %}"></script>
+{% endfor %}
+
+{% for jsurl in dz_array.global.js.bottom %}
+<script src="{% static jsurl %}"></script>
+{% endfor %}
+
+{% block additional_js %}
+{% endblock %}
+</body>
+</html>

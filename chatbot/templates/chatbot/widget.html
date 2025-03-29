@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Chat Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 9999;
+            resize: both;
+            overflow: auto;
+            min-width: 250px;
+            min-height: 350px;
+            max-width: 500px;
+            max-height: 600px;
+            border: 1px solid #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .chat-header {
+            padding: 12px 15px;
+            background: #4a6f28;
+            color: white;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #f9f9f7;
+        }
+
+        .message {
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            line-height: 1.4;
+            font-size: 14px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .message.user {
+            background: #e8f0e4;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+            color: #333;
+        }
+
+        .message.bot {
+            background: #4a6f28;
+            color: white;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input {
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #e0e0e0;
+            background-color: white;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+            background-color: #f9f9f7;
+        }
+
+        .chat-input input:focus {
+            border-color: #4a6f28;
+        }
+
+        .chat-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #4a6f28;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9998;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .chat-toggle:hover {
+            background: #3a5920;
+            transform: scale(1.05);
+        }
+
+        .send-btn {
+            background: #4a6f28;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: #3a5920;
+        }
+
+        .close-btn, .close-faq-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .close-faq-btn {
+            color: #6c757d;
+        }
+
+        .chat-toggle.hidden {
+            display: none;
+        }
+
+        .fa-comments {
+            font-size: 26px;
+        }
+
+        .fa-paper-plane {
+            font-size: 16px;
+        }
+
+        .faq-section {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            background: #f9f9f7;
+        }
+
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .faq-section h4 {
+            margin: 0;
+            font-size: 14px;
+            color: #4a6f28;
+            font-weight: 600;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .faq-items.hidden {
+            display: none;
+        }
+
+        .faq-item {
+            background: #e8f0e4;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #3a5920;
+        }
+
+        .faq-item:hover {
+            background: #d0e0c8;
+        }
+
+        .last-message {
+            padding: 8px 15px;
+            border-top: 1px solid #e0e0e0;
+            background: #f9f9f7;
+            font-size: 12px;
+        }
+
+        .last-message h4 {
+            margin: 0 0 4px 0;
+            color: #4a6f28;
+            font-weight: 600;
+        }
+
+        .last-message p {
+            margin: 0;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        /* Notification badge */
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <h3><i class="fas fa-cross" style="margin-right: 8px;"></i> Church Assistant👋</h3>
+            <button onclick="toggleChat()" class="close-btn">×</button>
+        </div>
+        
+        <div class="faq-section" id="faqSection">
+            <div class="faq-header">
+                <h4>How can we help you?</h4>
+                <button onclick="toggleFAQ()" class="close-faq-btn">×</button>
+            </div>
+            <div class="faq-items" id="faqItems">
+                <button class="faq-item" onclick="askQuestion('What are your service times?')">Service Times</button>
+                <button class="faq-item" onclick="askQuestion('Where are you located?')">Location</button>
+                <button class="faq-item" onclick="askQuestion('Do you have programs for children?')">Children's Programs</button>
+                <button class="faq-item" onclick="askQuestion('How can I get involved?')">Get Involved</button>
+                <button class="faq-item" onclick="askQuestion('Do you offer counseling?')">Counseling</button>
+                <button class="faq-item" onclick="askQuestion('What are your beliefs?')">Our Beliefs</button>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                Peace be with you! I'm here to help answer your questions about our church. You can ask about service times, location, ministries, or anything else!
+            </div>
+        </div>
+
+        <div class="last-message" id="lastMessage">
+            <h4>Last Conversation</h4>
+            <p id="lastMessageText">No recent messages</p>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Ask your question..." autocomplete="off">
+            <button onclick="sendMessage()" class="send-btn">
+                <i class="fa fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chat-toggle" id="chatToggleBtn" onclick="toggleChat()">
+        <i class="fas fa-comment-alt"></i>
+        <span class="notification-badge" id="notificationBadge" style="display: none;">1</span>
+    </button>
+
+    {% if request %}
+        <script>const csrfToken = "{{ csrf_token }}";</script>
+    {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const widget = document.getElementById('chatWidget');
+            const toggleBtn = document.getElementById('chatToggleBtn');
+            const lastMessage = localStorage.getItem('lastChatMessage');
+            
+            // Start with widget closed
+            widget.style.display = 'none';
+            toggleBtn.style.display = 'flex';
+            
+            if (lastMessage) {
+                document.getElementById('lastMessageText').textContent = lastMessage;
+            }
+            
+            document.getElementById('faqItems').classList.remove('hidden');
+        });
+
+        function toggleChat() {
+            const widget = document.getElementById('chatWidget');
+            const toggleBtn = document.getElementById('chatToggleBtn');
+            const isHidden = widget.style.display === 'none' || !widget.style.display;
+            
+            if (isHidden) {
+                widget.style.display = 'flex';
+                toggleBtn.classList.add('hidden');
+                // Hide notification when chat is opened
+                document.getElementById('notificationBadge').style.display = 'none';
+                setTimeout(() => document.getElementById('userInput').focus(), 100);
+            } else {
+                widget.style.display = 'none';
+                toggleBtn.classList.remove('hidden');
+            }
+        }
+
+        function toggleFAQ() {
+            const faqItems = document.getElementById('faqItems');
+            faqItems.classList.toggle('hidden');
+        }
+
+        function askQuestion(question) {
+            document.getElementById('userInput').value = question;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            document.getElementById('lastMessageText').textContent = message;
+            localStorage.setItem('lastChatMessage', message);
+            input.value = '';
+            input.focus();
+
+            const typingIndicator = addMessage('The assistant is typing...', 'bot');
+            
+            fetch('/chat/response/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken || getCookie('csrftoken')
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                typingIndicator.remove();
+                
+                if (data.response) {
+                    addMessage(data.response, 'bot');
+                    // Show notification badge if chat is closed
+                    if (document.getElementById('chatWidget').style.display === 'none') {
+                        document.getElementById('notificationBadge').style.display = 'flex';
+                    }
+                } else {
+                    addMessage("I didn't quite get that. Could you rephrase your question?", 'bot');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                typingIndicator.remove();
+                addMessage("We're experiencing technical difficulties. Please try again later.", 'bot');
+            });
+        }
+
+        function addMessage(message, type) {
+            const messages = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = `message ${type}`;
+            div.textContent = message;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+            return div;
+        }
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
