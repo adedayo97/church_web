@@ -30,7 +30,7 @@ PREDEFINED_RESPONSES = [
 
 FAQ_RESPONSES = {
     "service times": "Our regular services are Sunday at 9am and 11am, with Wednesday prayer meeting at 7pm.",
-    "location": "We're located at 123 Faith Avenue, Spiritual City. All are welcome!",
+    "location": "contact us to know more about it",
     "children": "We have wonderful Sunday School programs for all ages during both services.",
     "involved": "There are many ways to serve! Please visit our ministries page or talk to any pastor.",
     "counseling": "Yes, we offer pastoral counseling. Please contact the church office to schedule an appointment.",
