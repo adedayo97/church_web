@@ -1,15 +1,23 @@
 import json
 import openai
+import os
 from django.http import JsonResponse
 from .models import ChatMessage
 from django.views.decorators.csrf import csrf_exempt
 import logging
 from random import choice
+from dotenv import load_dotenv
+
+# Initialize environment variables
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# Hardcoded API key (as requested)
-OPENAI_API_KEY = "***REMOVED***"
+# Securely load API key from environment
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    logger.error("OPENAI_API_KEY not found in environment variables")
+    raise ValueError("API key is required")
 
 # Predefined responses for when OpenAI API is unavailable
 PREDEFINED_RESPONSES = [
@@ -29,65 +37,72 @@ FAQ_RESPONSES = {
     "beliefs": "We believe in the Holy Trinity and follow the teachings of Jesus Christ as revealed in Scripture."
 }
 
+def get_faq_response(user_message):
+    """Check if message matches any FAQ keywords"""
+    user_message = user_message.lower()
+    for keyword, response in FAQ_RESPONSES.items():
+        if keyword in user_message:
+            return response
+    return None
+
 @csrf_exempt
 def chat_response(request):
-    if request.method == 'POST':
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Only POST requests are allowed'}, status=405)
+
+    try:
+        # Parse JSON data
         try:
-            # Parse JSON data
+            data = json.loads(request.body)
+            user_message = data.get('message', '').strip()
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON format'}, status=400)
+
+        if not user_message:
+            return JsonResponse({'error': 'Message cannot be empty'}, status=400)
+
+        # First check FAQ responses
+        faq_response = get_faq_response(user_message)
+        if faq_response:
+            bot_response = faq_response
+        else:
+            # Try OpenAI API with fallback
             try:
-                data = json.loads(request.body)
-                user_message = data.get('message', '').strip().lower()
-            except json.JSONDecodeError:
-                return JsonResponse({'error': 'Invalid JSON format'}, status=400)
+                client = openai.OpenAI(api_key=OPENAI_API_KEY)
+                completion = client.chat.completions.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {
+                            "role": "system", 
+                            "content": "You are a helpful church assistant. Provide warm, spiritual responses to questions about church services, events, and Christian teachings."
+                        },
+                        {
+                            "role": "user", 
+                            "content": user_message
+                        }
+                    ],
+                    temperature=0.7,
+                    max_tokens=150
+                )
+                bot_response = completion.choices[0].message.content
+            except openai.OpenAIError as e:
+                logger.warning(f"OpenAI API Error: {str(e)}")
+                bot_response = choice(PREDEFINED_RESPONSES)
+            except Exception as e:
+                logger.error(f"Unexpected OpenAI error: {str(e)}")
+                bot_response = "God's grace is sufficient, even when technology fails us. Please try again later."
 
-            if not user_message:
-                return JsonResponse({'error': 'Message cannot be empty'}, status=400)
+        # Save to database
+        ChatMessage.objects.create(
+            user=request.user if request.user.is_authenticated else None,
+            message=user_message,
+            response=bot_response
+        )
 
-            # First check if this is a FAQ question
-            for keyword, response in FAQ_RESPONSES.items():
-                if keyword in user_message:
-                    bot_response = response
-                    break
-            else:
-                # If not a FAQ, try OpenAI (with fallback)
-                try:
-                    client = openai.OpenAI(api_key=OPENAI_API_KEY)
-                    completion = client.chat.completions.create(
-                        model="gpt-3.5-turbo",
-                        messages=[
-                            {
-                                "role": "system", 
-                                "content": "You are a helpful church assistant. Provide warm, spiritual responses to questions about church services, events, and Christian teachings."
-                            },
-                            {
-                                "role": "user", 
-                                "content": user_message
-                            }
-                        ],
-                        temperature=0.7,
-                        max_tokens=150
-                    )
-                    bot_response = completion.choices[0].message.content
-                except openai.OpenAIError as e:
-                    logger.warning(f"OpenAI API Error - using fallback response: {str(e)}")
-                    bot_response = choice(PREDEFINED_RESPONSES)
-                except Exception as e:
-                    logger.error(f"Unexpected OpenAI error: {str(e)}")
-                    bot_response = "God's grace is sufficient, even when technology fails us. Please try again later."
+        return JsonResponse({'response': bot_response})
 
-            # Save to database
-            ChatMessage.objects.create(
-                user=request.user if request.user.is_authenticated else None,
-                message=user_message,
-                response=bot_response
-            )
-
-            return JsonResponse({'response': bot_response})
-
-        except Exception as e:
-            logger.error(f"Unexpected server error: {str(e)}")
-            return JsonResponse({
-                'response': "An unexpected error occurred in our prayer chain. Please try again."
-            }, status=500)
-
-    return JsonResponse({'error': 'Only POST requests are allowed'}, status=405)
+    except Exception as e:
+        logger.error(f"Unexpected server error: {str(e)}")
+        return JsonResponse({
+            'response': "An unexpected error occurred in our prayer chain. Please try again."
+        }, status=500)

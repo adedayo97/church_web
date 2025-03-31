@@ -1,0 +1,6 @@
+.env
+secrets.txt
+requirements.txt
+config.json
+*.pyc
+__pycache__/
